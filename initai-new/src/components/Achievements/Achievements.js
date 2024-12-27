@@ -45,7 +45,7 @@ const Achievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [displayedAchievement, setDisplayedAchievement] = useState("hello");
   const apiUrl =
-    `${API}/api/achievements`;
+    "/achievements";
 
   const fetchData = async () => {
     try {

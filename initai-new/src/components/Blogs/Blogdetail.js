@@ -18,7 +18,7 @@ const BlogDetail = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     const fetchBlogDetail = async () => {
       try {
-        const res = await axios.get(`${API}/api/blogs/${id}`);
+        const res = await axios.get(`blogs/${id}`);
         setBlog(res.data);
       } catch (error) {
         console.error("Error fetching blog details:", error);

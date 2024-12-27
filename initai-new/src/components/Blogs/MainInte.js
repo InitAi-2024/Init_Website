@@ -464,11 +464,11 @@ const MainInte = () => {
 
   const getApiData = async (category) => {
     try {
-      let endpoint = API;
+      let endpoint = "";
       if (category) {
-        endpoint += `api/blogs?categories=${category.toLowerCase()}`;
+        endpoint += `blogs?categories=${category.toLowerCase()}`;
       } else {
-        endpoint += "api/blogs/all";
+        endpoint += "/blogs/all";
       }
       const res = await axios.get(endpoint);
       setMyData(res.data);
