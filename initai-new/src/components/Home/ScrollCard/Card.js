@@ -7,6 +7,7 @@ import  {useHoverStore}  from "./store";
 import achievements from "./achievements.jpg";
 import blogs from "./blogs.jpg";
 import projects from "./projects.jpg";
+import events from "./Events.png"
 
 function Card() {
   gsap.registerPlugin(ScrollTrigger);
@@ -173,10 +174,10 @@ function Card() {
               <Link
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                to="/projects"
+                to="/events"
               >
                 <img
-                  src={projects}
+                  src={events}
                   className="flex-center"
                   height="563"
                   width="337"
@@ -194,16 +195,14 @@ function Card() {
                   className="medium-font box-title font-bold text-xl"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  to="/projects"
+                  to="/events"
                   passHref
                 >
-                  PROJECTS
+                  EVENTS
                 </Link>
                 <ul>
                   <li>
-                    Our club actively engages in a spectrum of projects centered
-                    around cutting-edge Machine Learning initiatives, fostering
-                    innovation and advancement within the field.
+                  Our club hosts a diverse array of events, from hands-on AI workshops to engaging hackathons, inspiring creativity and fostering collaboration in the tech community.
                   </li>
 
                 </ul>
@@ -213,7 +212,7 @@ function Card() {
                     onMouseLeave={handleMouseLeave}
                     className="btn-small box-link"
                     // href="/stuff/ideology"
-                    to="/projects"
+                    to="/events"
                     passHref
                   >
                     Find out
