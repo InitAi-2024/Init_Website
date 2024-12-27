@@ -50,6 +50,7 @@ const Achievements = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(apiUrl);
+      console.log(response.data);
       setAchievements(response.data);
       if (response.data.length > 0) {
         setDisplayedAchievement(response.data[0]);
