@@ -121,4 +121,3 @@ const MultiCarousel = ({ onSelectCategory }) => {
 
 export default MultiCarousel;
 
-

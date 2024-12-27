@@ -109,7 +109,6 @@
   .scroll-container-about {
     height: 100vh;
     overflow-y: auto; /* Normal scrolling behavior */
-     /* Firefox: thinner scrollbar */
     /* Scrollbar color customization */
     scrollbar-width: 3px;
     scrollbar-color: rgb(180, 28, 170) transparent;
@@ -118,7 +117,10 @@
   .part {
     height: 100vh;
     position: relative;
-    overflow: hidden; /* Keep overflow hidden to contain the content */
+    overflow: hidden; 
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center content */
+    justify-content: space-between; /* Space text and image evenly */
   }
 
   /* Custom scrollbar styles for WebKit (Chrome, Safari) */
@@ -137,40 +139,15 @@
   }
 
   .part .content1 {
-    position: absolute;
-    top: 15%;
-    transform: translateY(-50%);
-  }
-
-  .part .content2 {
-    margin-top: 4%;
-  }
-
-  .part .content3 {
-    margin-top: 8%;
-  }
-
-  .part .content4 {
-    margin-top: 5%;
+    max-width: 50%; /* Adjust content width */
+    padding-left: 2rem;
   }
 
   .part .image {
-    position: absolute;
-    bottom: 14%;
-    left: 50%;
-    transform: translate(0, 0);
-  }
-
-  .part .image2 {
-    margin-top: 30px;
-  }
-
-  .part .image3 {
-    margin-top: 80px;
-  }
-
-  .part .image4 {
-    margin-top: 6%;
+    max-width: 45%; /* Adjust image size */
+    height: auto;
+    position: static; /* Ensure proper alignment */
+    margin-right: 2rem;
   }
 
   /* Removed scroll-snap for smooth scrolling */
@@ -178,11 +155,18 @@
 
 @media only screen and (max-width: 768px) {
   .part {
-    height: 100vh;
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    height: auto;
   }
 
   .image {
-    margin-left: 2.5rem;
+    margin: 1rem auto; /* Center image */
+    width: 80%; /* Adjust image size */
+  }
+
+  .content1 {
+    padding: 1rem;
+    text-align: center;
   }
 }
 
