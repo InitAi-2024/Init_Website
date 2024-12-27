@@ -449,7 +449,6 @@
 
 // export default MainInte;
 
-
 // 4th trial code down
 import React, { useState, useEffect } from "react";
 import axios from "../../axios";
@@ -495,30 +494,32 @@ const MainInte = () => {
       <h1 className="font-black text-4xl pt-4 py-7">Latest Blogs</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-self-center">
         {myData.map((post) => {
-          const { _id,title, summary, categories,image,date } = post;
+          const { _id, title, summary, categories, image, date } = post;
           return (
-            <div
-              key={_id}
-              className="bg-[#3b2f57] text-[#e6e6e6] rounded-lg p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <img
-                className="w-full h-40 rounded-md object-cover mb-4"
-                src={image}
-                alt={title}
-              />
-              <Link to={`/blogs/${_id}`}>
+            <Link to={`/blogs/${_id}`}>
+              <div
+                key={_id}
+                className="bg-[#3b2f57] text-[#e6e6e6] rounded-lg p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <img
+                  className="w-full h-40 rounded-md object-cover mb-4"
+                  src={image}
+                  alt={title}
+                />
+
                 <h2 className="text-[#f1f1f1] font-bold text-lg mb-2 hover:text-[#ff77a9]">
                   {title}
                 </h2>
-              </Link>
-              <span className="text-[#ff77a9] font-semibold text-sm mb-2">
-                {categories}
-              </span>
-              <p className="text-[#d1d1d1] text-sm mb-4">{summary}</p>
-              <div className="text-xs text-[#bcbcbc]">
-                <span>{new Date(date).toDateString()}</span>
+
+                <span className="text-[#ff77a9] font-semibold text-sm mb-2">
+                  {categories}
+                </span>
+                <p className="text-[#d1d1d1] text-sm mb-4">{summary}</p>
+                <div className="text-xs text-[#bcbcbc]">
+                  <span>{new Date(date).toDateString()}</span>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -202,7 +202,7 @@ function Card() {
                 </Link>
                 <ul>
                   <li>
-                  Our club hosts a diverse array of events, from hands-on AI workshops to engaging hackathons, inspiring creativity and fostering collaboration in the tech community.
+                  Our club hosts a diverse array of events, from hands-on AI workshops to engaging datathons, inspiring creativity and fostering collaboration in the tech community.
                   </li>
 
                 </ul>
