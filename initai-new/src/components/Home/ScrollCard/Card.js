@@ -7,7 +7,7 @@ import  {useHoverStore}  from "./store";
 import achievements from "./achievements.jpg";
 import blogs from "./blogs.jpg";
 import projects from "./projects.jpg";
-import events from "./Events.png"
+import events from "./events.jpg"
 
 function Card() {
   gsap.registerPlugin(ScrollTrigger);
