@@ -61,6 +61,7 @@ const Achievements = () => {
   };
   useEffect(() => {
     fetchData();
+    console.log(achievements)
     window.scrollTo(0, 0);
   }, []);
 
