@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
 import robot_head from "../../assets/head_robot_img.png";
 import robot_arm from "../../assets/robot_arm-removebg-preview.png";
 import handshake_laptop from "../../assets/handshake_laptop-transformed.png";
