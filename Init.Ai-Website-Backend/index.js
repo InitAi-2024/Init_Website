@@ -9,6 +9,14 @@ const DB = process.env.MONGO_URI;
 
 const app = express();
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://init-website-dusky.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
+  
+
 const corsOptions = {
   origin: "https://init-website-dusky.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
