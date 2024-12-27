@@ -47,23 +47,30 @@ const Achievements = () => {
   const apiUrl =
     "/achievements";
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(apiUrl);
-      console.log(response.data);
-      setAchievements(response.data);
-      if (response.data.length > 0) {
-        setDisplayedAchievement(response.data[0]);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(apiUrl);
+        console.log("API Response:", response.data);
+        if (Array.isArray(response.data)) {
+          setAchievements(response.data);
+          if (response.data.length > 0) {
+            setDisplayedAchievement(response.data[0]);
+          }
+        } else {
+          console.error("Unexpected API response format:", response.data);
+          setAchievements([]);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setAchievements([]); // Reset to empty array on error
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-    console.log(achievements)
-    window.scrollTo(0, 0);
-  }, []);
+    };
+    
+    useEffect(() => {
+      fetchData();
+      window.scrollTo(0, 0);
+    }, []);
+    
 
   return (
     <>
