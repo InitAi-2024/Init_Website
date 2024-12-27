@@ -10,7 +10,7 @@ const DB = process.env.MONGO_URI
 const app = express()
 
 app.use(cors({
-    origin: 'https://init-website-backend.vercel.app/',
+    origin: 'https://init-website-dusky.vercel.app/',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }))
