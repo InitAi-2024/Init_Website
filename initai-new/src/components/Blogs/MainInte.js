@@ -468,7 +468,7 @@ const MainInte = () => {
       if (category) {
         endpoint += `blogs?categories=${category.toLowerCase()}`;
       } else {
-        endpoint += "/blogs/all";
+        endpoint += "blogs/all";
       }
       const res = await axios.get(endpoint);
       setMyData(res.data);

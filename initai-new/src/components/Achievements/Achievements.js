@@ -44,13 +44,9 @@ const Achievements = () => {
   };
   const [achievements, setAchievements] = useState([]);
   const [displayedAchievement, setDisplayedAchievement] = useState("hello");
-  const apiUrl =
-    "achievements";
-
     const fetchData = async () => {
       try {
-        const response = await axios.get(apiUrl);
-        console.log("API Response:", response.data);
+        const response = await axios.get("https://init-website-backend.vercel.app/api/achievements");
         if (Array.isArray(response.data)) {
           setAchievements(response.data);
           if (response.data.length > 0) {

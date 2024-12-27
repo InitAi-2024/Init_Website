@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   
 
 const corsOptions = {
-  origin: "https://init-website-dusky.vercel.app",
+  origin: ["https://init-website-dusky.vercel.app","https://init-website-dusky.vercel.app/achievements"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
