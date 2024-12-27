@@ -1,0 +1,194 @@
+/* Center Align Images in Markdown */
+.markdown-body img {
+  display: block;
+  margin: 0 auto; /* Centers the image horizontally */
+  max-width: 100%; /* Ensure images scale down */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Markdown Body CSS */
+.markdown-body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #ffffff; /* White text for visibility */
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px); /* Optional blur for frosted-glass effect */
+  background-color: transparent !important; /* Make it transparent to show the body's background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better readability */
+  max-width: 90%; /* Limit the width for smaller screens */
+  word-wrap: break-word; /* Prevent overflow on smaller devices */
+}
+
+/* Headings */
+.markdown-body h1 {
+  font-size: 2rem; /* Adjust font size for smaller screens */
+  color: #ffcc00; /* Highlighted color for H1 */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-body h2 {
+  font-size: 1.5rem;
+  color: #ffdd33;
+  margin-top: 1.5rem;
+}
+
+.markdown-body h3 {
+  font-size: 1.25rem;
+  color: #eaeaea;
+  margin-top: 1rem;
+}
+
+/* Paragraphs */
+.markdown-body p {
+  margin: 1rem 0;
+}
+
+/* Lists */
+.markdown-body ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.markdown-body li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+.markdown-body a {
+  color: #00acee;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+  color: #00d4ff;
+}
+
+/* Code Blocks */
+.markdown-body pre {
+  background-color: #1e163a;
+  color: #c6a0f6;
+  padding: 10px 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid #4a357b;
+}
+
+.markdown-body code {
+  color: #d9b3ff;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Blockquotes */
+.markdown-body blockquote {
+  border-left: 4px solid #ffcc00;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+/* Tables */
+.markdown-body table {
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  color: #ffffff;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.markdown-body th {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .markdown-body {
+    font-size: 0.9rem; /* Reduce font size for tablets */
+    padding: 15px;
+  }
+
+  .markdown-body h1 {
+    font-size: 1.8rem;
+  }
+
+  .markdown-body h2 {
+    font-size: 1.4rem;
+  }
+
+  .markdown-body h3 {
+    font-size: 1.2rem;
+  }
+
+  .markdown-body pre {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .markdown-body {
+    font-size: 0.85rem; /* Reduce font size for mobile devices */
+    padding: 10px;
+  }
+
+  .markdown-body h1 {
+    font-size: 1.6rem;
+  }
+
+  .markdown-body h2 {
+    font-size: 1.3rem;
+  }
+
+  .markdown-body h3 {
+    font-size: 1.1rem;
+  }
+
+  .markdown-body img {
+    max-width: 100%; /* Ensure images scale down */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .markdown-body pre {
+    padding: 8px 10px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .markdown-body {
+    font-size: 0.8rem;
+  }
+
+  .markdown-body h1 {
+    font-size: 1.4rem;
+  }
+
+  .markdown-body h2 {
+    font-size: 1.2rem;
+  }
+
+  .markdown-body h3 {
+    font-size: 1rem;
+  }
+
+  .markdown-body pre {
+    font-size: 0.75rem;
+  }
+}
