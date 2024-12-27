@@ -177,7 +177,7 @@ function Card() {
                 to="/events"
               >
                 <img
-                  src={events}
+                  src={projects}
                   className="flex-center"
                   height="563"
                   width="337"
