@@ -205,7 +205,7 @@ export default function Layout() {
         <div className="flex flex-col lg:mt-[15vh] mt-6 w-full gap-12">
           <div className="flex items-center justify-center">
             <p id="smentor" className="border-2  p-2 tab">
-              Senior Mentors
+              Senior Research Leads
             </p>
           </div>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 justify-items-center w-full gap-5 lg:mt-[15vh] mt-6">
@@ -249,7 +249,7 @@ export default function Layout() {
                 className="border-2 p-2 mb-2 text-center text-sm tab"
                 id="mentors"
               >
-                Junior Mentors
+                Junior Research Leads
               </p>
             </div>
             <div>

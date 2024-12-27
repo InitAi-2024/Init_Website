@@ -51,7 +51,6 @@ import VidhiShah from "./images/VidhiShah.png";
 import viral from "./images/ViralDalal.png";
 import jeet from "./images/JeetDoshi.png";
 // import WhatsApp_Image_2024-11-05_at_20.30.30_94b31851 from "./images/WhatsApp_Image_2024-11-05_at_20.30.30_94b31851.png";
-// import AtharvaDeshpande from "./images/AtharvaDeshpande.png";
 import AnishSharma from "./images/AnishSharma.png";
 import KashviMahetaliya from "./images/KashviMahetaliya.png";
 import VanshJain from "./images/VanshJain.png";
@@ -250,16 +249,6 @@ export const juniorMentor = [
     Instagram: "https://www.instagram.com/anish.sharma30/",
     Github: "https://github.com/EngineerAnishSharma",
   },
-  // {
-  //   Email: "atharvad2603@gmail.com",
-  //   Name: "Atharva Deshpande",
-  //   Position: "Junior Research Lead",
-  //   Department: "",
-  //   Image: AtharvaDeshpande,
-  //   LinkedIn: "linkedin.com/in/atharva-deshpande-aab469251",
-  //   Instagram: "NA",
-  //   Github: "https://github.com/a2d6"
-  // }
 ];
 
 export const seniorMentor = [

@@ -58,7 +58,7 @@ const Achievements = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
-        setAchievements([]); // Reset to empty array on error
+        setAchievements([]); 
       }
     };
     
@@ -110,7 +110,7 @@ const Achievements = () => {
                     </p>
                     <p className="text-center text-sm md:text-lg mt-1">
                       <strong className="text-sm md:text-lg">Date:</strong>{" "}
-                      {new Date(achievement.Date).toLocaleDateString()}
+                      {achievement?.Date}
                     </p>
                   </div>
                 </div>
