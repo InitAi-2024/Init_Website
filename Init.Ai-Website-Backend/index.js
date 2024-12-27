@@ -9,7 +9,11 @@ const DB = process.env.MONGO_URI
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://init-website-backend.vercel.app/',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}))
 app.use(express.json())
 app.use('/api',achievementRouter)
 app.use('/api',blogRouter)

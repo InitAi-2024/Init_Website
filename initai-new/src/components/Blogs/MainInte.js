@@ -455,6 +455,7 @@ import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import MultiCarousel from "./MultiCarousel";
 import { Link } from "react-router-dom";
+import API from "../../axios";
 
 const MainInte = () => {
   const [myData, setMyData] = useState([]);
@@ -463,11 +464,11 @@ const MainInte = () => {
 
   const getApiData = async (category) => {
     try {
-      let endpoint = "http://localhost:5000/api/blogs";
+      let endpoint = API;
       if (category) {
-        endpoint += `?categories=${category.toLowerCase()}`;
+        endpoint += `api/blogs?categories=${category.toLowerCase()}`;
       } else {
-        endpoint += "/all";
+        endpoint += "api/blogs/all";
       }
       const res = await axios.get(endpoint);
       setMyData(res.data);

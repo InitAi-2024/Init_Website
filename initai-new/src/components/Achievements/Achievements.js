@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 // import slide_image_1 from "../../assets/img_1.jpg";
 import axios from "axios";
 import "./Achievements.css";
+import API from "../../axios";
 
 const Achievements = () => {
   const settings = {
@@ -44,7 +45,7 @@ const Achievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [displayedAchievement, setDisplayedAchievement] = useState("hello");
   const apiUrl =
-    "http://localhost:5000/api/achievements";
+    `${API}/api/achievements`;
 
   const fetchData = async () => {
     try {

@@ -8,6 +8,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./markdownBlog.css"; // Import your CSS file
 import "./Blogs.css";
+import API from "../../axios";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const BlogDetail = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     const fetchBlogDetail = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+        const res = await axios.get(`${API}/api/blogs/${id}`);
         setBlog(res.data);
       } catch (error) {
         console.error("Error fetching blog details:", error);
