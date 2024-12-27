@@ -45,7 +45,7 @@ const Achievements = () => {
   const [achievements, setAchievements] = useState([]);
   const [displayedAchievement, setDisplayedAchievement] = useState("hello");
   const apiUrl =
-    "https://init-website-backend.vercel.app/api/achievements";
+    "achievements";
 
     const fetchData = async () => {
       try {
