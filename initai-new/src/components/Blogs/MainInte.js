@@ -450,29 +450,110 @@
 // export default MainInte;
 
 // 4th trial code down
+// import React, { useState, useEffect } from "react";
+// import axios from "../../axios";
+// import MultiCarousel from "./MultiCarousel";
+// import { Link } from "react-router-dom";
+// import API from "../../axios";
+
+// const MainInte = () => {
+//   const [myData, setMyData] = useState([]);
+//   const [isError, setIsError] = useState(null);
+//   const [selectedCategory, setSelectedCategory] = useState(null);
+
+//   const getApiData = async (category) => {
+//     try {
+//       let endpoint = "";
+//       if (category) {
+//         endpoint += `blogs?categories=${category.toLowerCase()}`;
+//       } else {
+//         endpoint += "blogs/all";
+//       }
+//       const res = await axios.get(endpoint);
+//       setMyData(res.data);
+//     } catch (error) {
+//       setIsError("Error fetching content");
+//     }
+//   };
+
+//   useEffect(() => {
+//     getApiData(selectedCategory);
+//   }, [selectedCategory]);
+
+//   return (
+//     <>
+//       <div className="sm:px-5 px-20 pt-10 md:pt-0">
+//         {/* Category selection carousel */}
+//         <MultiCarousel
+//           onSelectCategory={(category) => {
+//             setSelectedCategory(category);
+//           }}
+//         />
+//         <hr />
+//       </div>
+//       <h1 className="font-black text-4xl pt-4 py-7">Latest Blogs</h1>
+//       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-self-center">
+//         {myData.map((post) => {
+//           const { _id, title, summary, categories, image, date } = post;
+//           return (
+//             <Link to={`/blogs/${_id}`}>
+//               <div
+//                 key={_id}
+//                 className="bg-[#3b2f57] text-[#e6e6e6] rounded-lg p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
+//               >
+//                 <img
+//                   className="w-full h-40 rounded-md object-cover mb-4"
+//                   src={image}
+//                   alt={title}
+//                 />
+
+//                 <h2 className="text-[#f1f1f1] font-bold text-lg mb-2 hover:text-[#ff77a9]">
+//                   {title}
+//                 </h2>
+
+//                 <span className="text-[#ff77a9] font-semibold text-sm mb-2">
+//                   {categories}
+//                 </span>
+//                 <p className="text-[#d1d1d1] text-sm mb-4">{summary}</p>
+//                 <div className="text-xs text-[#bcbcbc]">
+//                   <span>{new Date(date).toDateString()}</span>
+//                 </div>
+//               </div>
+//             </Link>
+//           );
+//         })}
+//       </div>
+//     </>
+//   );
+// };
+
+// export default MainInte;
+
+
 import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import MultiCarousel from "./MultiCarousel";
 import { Link } from "react-router-dom";
-import API from "../../axios";
+import Loader from "../Loader/Loader";
 
 const MainInte = () => {
   const [myData, setMyData] = useState([]);
   const [isError, setIsError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getApiData = async (category) => {
     try {
-      let endpoint = "";
-      if (category) {
-        endpoint += `blogs?categories=${category.toLowerCase()}`;
-      } else {
-        endpoint += "blogs/all";
-      }
+      setIsLoading(true);
+      let endpoint = category
+        ? `blogs?categories=${category.toLowerCase()}`
+        : "blogs/all";
       const res = await axios.get(endpoint);
       setMyData(res.data);
     } catch (error) {
       setIsError("Error fetching content");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -485,46 +566,65 @@ const MainInte = () => {
       <div className="sm:px-5 px-20 pt-10 md:pt-0">
         {/* Category selection carousel */}
         <MultiCarousel
-          onSelectCategory={(category) => {
-            setSelectedCategory(category);
-          }}
+          onSelectCategory={(category) => setSelectedCategory(category)}
         />
         <hr />
       </div>
+
       <h1 className="font-black text-4xl pt-4 py-7">Latest Blogs</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-self-center">
-        {myData.map((post) => {
-          const { _id, title, summary, categories, image, date } = post;
-          return (
-            <Link to={`/blogs/${_id}`}>
-              <div
-                key={_id}
-                className="bg-[#3b2f57] text-[#e6e6e6] rounded-lg p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
-              >
-                <img
-                  className="w-full h-40 rounded-md object-cover mb-4"
-                  src={image}
-                  alt={title}
-                />
+      <div className="relative">
+        {/* Loader overlay */}
+        {isLoading && (
+          <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center z-10">
+            <Loader />
+          </div>
+        )}
 
-                <h2 className="text-[#f1f1f1] font-bold text-lg mb-2 hover:text-[#ff77a9]">
-                  {title}
-                </h2>
+        {/* Blog cards grid */}
+        <div
+          className={`grid grid-cols-1 md:grid-cols-3 gap-6 place-self-center ${
+            isLoading ? "opacity-50 pointer-events-none" : ""
+          }`}
+        >
+          {myData && myData.length > 0 ? (
+            myData.map((post) => {
+              const { _id, title, summary, categories, image, date } = post;
+              return (
+                <Link to={`/blogs/${_id}`} key={_id}>
+                  <div
+                    className="bg-[#3b2f57] text-[#e6e6e6] rounded-lg p-5 shadow-md hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <img
+                      className="w-full h-40 rounded-md object-cover mb-4"
+                      src={image}
+                      alt={title}
+                    />
 
-                <span className="text-[#ff77a9] font-semibold text-sm mb-2">
-                  {categories}
-                </span>
-                <p className="text-[#d1d1d1] text-sm mb-4">{summary}</p>
-                <div className="text-xs text-[#bcbcbc]">
-                  <span>{new Date(date).toDateString()}</span>
-                </div>
-              </div>
-            </Link>
-          );
-        })}
+                    <h2 className="text-[#f1f1f1] font-bold text-lg mb-2 hover:text-[#ff77a9]">
+                      {title}
+                    </h2>
+
+                    <span className="text-[#ff77a9] font-semibold text-sm mb-2">
+                      {categories}
+                    </span>
+                    <p className="text-[#d1d1d1] text-sm mb-4">{summary}</p>
+                    <div className="text-xs text-[#bcbcbc]">
+                      <span>{new Date(date).toDateString()}</span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })
+          ) : (
+            !isLoading && (
+              <p className="text-center text-gray-500">No blogs available.</p>
+            )
+          )}
+        </div>
       </div>
     </>
   );
 };
 
 export default MainInte;
+

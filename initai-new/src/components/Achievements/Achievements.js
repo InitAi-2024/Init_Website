@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import slide_image_1 from "../../assets/img_1.jpg";
 import axios from "axios";
 import "./Achievements.css";
 import API from "../../axios";
+import Loader from "../Loader/Loader";
 
 const Achievements = () => {
   const settings = {
@@ -42,80 +42,98 @@ const Achievements = () => {
       },
     ],
   };
+
   const [achievements, setAchievements] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
   const [displayedAchievement, setDisplayedAchievement] = useState("hello");
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://init-website-backend.vercel.app/api/achievements");
-        if (Array.isArray(response.data)) {
-          setAchievements(response.data);
-          if (response.data.length > 0) {
-            setDisplayedAchievement(response.data[0]);
-          }
-        } else {
-          console.error("Unexpected API response format:", response.data);
-          setAchievements([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://init-website-backend.vercel.app/api/achievements"
+      );
+      if (Array.isArray(response.data)) {
+        setAchievements(response.data);
+        if (response.data.length > 0) {
+          setDisplayedAchievement(response.data[0]);
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setAchievements([]); 
+      } else {
+        console.error("Unexpected API response format:", response.data);
+        setAchievements([]);
       }
-    };
-    
-    useEffect(() => {
-      fetchData();
-      window.scrollTo(0, 0);
-    }, []);
-    
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setAchievements([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
       <div className="achievements-container">
         <div className="w-[80%] pb-10 mx-auto">
           <div className="pt-20">
-            <Slider {...settings}>
-              {achievements.map((achievement, index) => (
-                <div
-                  key={index}
-                  className=" gradient h-auto md:h-[730px]  text-white rounded-3xl shadow-2xl border-2 bg-gradient1"
-                >
-                  <div className="h-60 md:h-72 bg-transparent flex justify-center items-center rounded-t-xl mt-5">
-                    <img
-                      src={achievement.image}
-                      alt=""
-                      className="h-60 md:h-72 w-full  object-contain   transition-transform hover:scale-105"
-                    />
-                  </div>
+            {loading ? (
+              <div className="flex justify-center items-center h-[730px]">
+                <Loader />
+              </div>
+            ) : (
+              <Slider {...settings}>
+                {achievements.map((achievement, index) => (
                   <div
-                    key={achievement?._id}
-                    className="achievement_card px-2 md:px-8 py-6 md:py-5 "
+                    key={index}
+                    className="gradient h-auto md:h-[730px] text-white rounded-3xl shadow-2xl border-2 bg-gradient1"
                   >
-                    <p className="text-center font-bold text-lg lg:text-3xl  py-1">
-                      {achievement?.CompetitionName}
-                    </p>
-                    <p className="text-sm  md:text-lg text-center py-1">
-                      {achievement?.TeamMembersName?.map((name) => name + ", ")}
-                    </p>
-                    <p className="text-center font-extrabold text-sm md:text-md">
-                      {achievement?.Position}
-                    </p>
-                    <p className="text-center text-sm md:text-md lg:text-lg m-3 lg:m-5 px-1">
-                      {achievement?.Description?.slice(0, 150) + "..."}
-                    </p>
-                    <p className="text-center text-sm md:text-lg px-4 my-1">
-                      <strong className="text-sm md:text-lg">Organized By:</strong> {achievement?.OrganizedBy}
-                    </p>
-                    <p className="text-center text-sm md:text-lg my-1">
-                      <strong className="text-sm md:text-lg">Year:</strong> {achievement?.Year}
-                    </p>
-                    <p className="text-center text-sm md:text-lg mt-1">
-                      <strong className="text-sm md:text-lg">Date:</strong>{" "}
-                      {achievement?.Date}
-                    </p>
+                    <div className="h-60 md:h-72 bg-transparent flex justify-center items-center rounded-t-xl mt-5">
+                      <img
+                        src={achievement.image}
+                        alt=""
+                        className="h-60 md:h-72 w-full object-contain transition-transform hover:scale-105"
+                      />
+                    </div>
+                    <div
+                      key={achievement?._id}
+                      className="achievement_card px-2 md:px-8 py-6 md:py-5 "
+                    >
+                      <p className="text-center font-bold text-lg lg:text-3xl py-1">
+                        {achievement?.CompetitionName}
+                      </p>
+                      <p className="text-sm md:text-lg text-center py-1">
+                        {achievement?.TeamMembersName?.map(
+                          (name) => name + ", "
+                        )}
+                      </p>
+                      <p className="text-center font-extrabold text-sm md:text-md">
+                        {achievement?.Position}
+                      </p>
+                      <p className="text-center text-sm md:text-md lg:text-lg m-3 lg:m-5 px-1">
+                        {achievement?.Description?.slice(0, 150) + "..."}
+                      </p>
+                      <p className="text-center text-sm md:text-lg px-4 my-1">
+                        <strong className="text-sm md:text-lg">
+                          Organized By:
+                        </strong>{" "}
+                        {achievement?.OrganizedBy}
+                      </p>
+                      <p className="text-center text-sm md:text-lg my-1">
+                        <strong className="text-sm md:text-lg">Year:</strong>{" "}
+                        {achievement?.Year}
+                      </p>
+                      <p className="text-center text-sm md:text-lg mt-1">
+                        <strong className="text-sm md:text-lg">Date:</strong>{" "}
+                        {achievement?.Date}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Slider>
+                ))}
+              </Slider>
+            )}
           </div>
         </div>
       </div>
@@ -124,6 +142,8 @@ const Achievements = () => {
 };
 
 export default Achievements;
+
+
 
 
 

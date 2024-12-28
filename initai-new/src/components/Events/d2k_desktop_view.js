@@ -1,7 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import "./d2k2024.scss";
 import deathstar from "./deathstar.png";
-
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
