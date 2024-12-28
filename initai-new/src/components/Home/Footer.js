@@ -27,7 +27,7 @@ const Footer = () => {
   }, []);
 
   const emailclick = () => {
-    window.location.href = "mailto:djsceinit.ai17@gmail.com";
+    window.location.href = "mailto:Initai.djsce@gmail.com";
   };
 
   const instaclick = () => {
