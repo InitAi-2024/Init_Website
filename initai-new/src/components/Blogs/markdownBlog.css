@@ -1,0 +1,122 @@
+/* Markdown Body CSS */
+.markdown-body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #ffffff; /* White text for visibility */
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px); /* Optional blur for frosted-glass effect */
+  background-color: transparent !important; /* Make it transparent to show the body's background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better readability */
+}
+
+/* Headings */
+.markdown-body h1 {
+  font-size: 2.5rem; /* Increase font size for visibility */
+  color: #ffcc00; /* Highlighted color for H1 */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem; /* Add spacing below the heading */
+}
+
+.markdown-body h2 {
+  font-size: 1.75rem;
+  color: #ffdd33; /* Slightly lighter yellow for H2 */
+  margin-top: 1.5rem;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.markdown-body h3 {
+  font-size: 1.5rem;
+  color: #eaeaea; /* Subtle white for H3 */
+  margin-top: 1rem;
+}
+
+/* Paragraphs */
+.markdown-body p {
+  margin: 1rem 0;
+}
+
+.markdown-body p img {
+  width: 80%;
+  margin: auto;
+  display: block;
+}
+
+/* Lists */
+.markdown-body ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.markdown-body li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+.markdown-body a {
+  color: #00acee; /* Cyan color for links */
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+  color: #00d4ff; /* Slightly brighter on hover */
+}
+
+/* Inline Code */
+.markdown-body code {
+  color: #d9b3ff;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+}
+  
+.markdown-body pre {
+  background-color: #1e163a;
+  color: #c6a0f6;
+  padding: 10px 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid #4a357b;
+}
+  
+  /* Blockquotes */
+  .markdown-body blockquote {
+  border-left: 4px solid #ffcc00;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+/* Tables */
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  color: #ffffff;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px;
+  text-align: left;
+}
+
+.markdown-body th {
+  background-color: rgba(255, 255, 255, 0.2);
+}
