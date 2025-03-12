@@ -1,0 +1,88 @@
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+
+function FAQ() {
+  const [openItem, setOpenItem] = useState(null);
+
+  const faqItems = [
+    {
+      question: "What is D2K 3.0 Hack?",
+      answer: "D2K 3.0 Hack is a 9-hour hackathon focused on AI, machine learning, and cutting-edge technology. It brings together developers, designers, and innovators to create groundbreaking solutions.",
+    },
+    {
+      question: "Who can participate?",
+      answer: "Anyone over 18 years old can participate, regardless of their experience level. We welcome students, professionals, and enthusiasts alike.",
+    },
+    {
+      question: "Do I need a team?",
+      answer: "You can participate in a team of minimum 2 or up to 3 people. We'll also have team formation events if you're looking to join one!",
+    },
+    {
+      question: "What should I bring?",
+      answer: "Your laptop, charger, any hardware you plan to use, and your creativity! We'll provide food, drinks, and a comfortable hacking environment.",
+    },
+    {
+      question: "Is there a registration fee?",
+      answer: "No, participation is completely free! We believe in making technology accessible to everyone.",
+    },
+    {
+      question: "Will there be prizes?",
+      answer: "Yes! We have a total prize pool of ₹100,000 distributed across various categories and special awards.",
+    },
+  ];
+
+  const toggleItem = (index) => {
+    setOpenItem(openItem === index ? null : index);
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="space-y-6">
+        {faqItems.map((item, index) => (
+          <div
+            key={index}
+            className="border border-green-400/30 rounded-lg overflow-hidden backdrop-blur-sm transition-all hover:border-green-400/50"
+          >
+            <button
+              className="w-full p-6 text-left flex justify-between items-center focus:outline-none"
+              onClick={() => toggleItem(index)}
+            >
+              <span className="text-xl font-medium">{item.question}</span>
+              <ChevronDown
+                className={`w-5 h-5 transition-transform ${openItem === index ? 'rotate-180' : ''}`}
+              />
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-300 ${openItem === index ? 'max-h-96 p-6 pt-2' : 'max-h-0'}`}
+            >
+              <p className="text-green-300">{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <style>{`
+        .matrix-glow {
+          text-shadow: 0 0 5px rgba(74, 222, 128, 0.3),
+                      0 0 10px rgba(74, 222, 128, 0.2);
+        }
+      `}</style>
+    </div>
+  );
+}
+
+function FAQPage() {
+  return (
+    <section id="faq" className="relative z-10 py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold mb-16 text-center matrix-glow">
+          Frequently Asked Questions
+        </h2>
+        <FAQ />
+      </div>
+    </section>
+  );
+}
+
+export { FAQ, FAQPage };
+export default FAQPage;

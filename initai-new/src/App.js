@@ -23,6 +23,7 @@ import Marketing from "./components/Team_old/Marketing";
 import Blogdetail from "./components/Blogs/Blogdetail";
 import Editorial from "./components/Team_old/Editorial";
 import Research from "./components/Team_old/Research";
+import Home from "./components/matrix/Home"
 function App() {
   return (
     <>
@@ -49,6 +50,7 @@ function App() {
           <Route path="/events" element={<Events />}></Route>
           <Route path="/events/2023" element={<Data2Knowledge />}></Route>
           <Route path="/events/2024" element={<D2k_2024 />}></Route>
+          <Route path="/events/2025" element={<Home />}></Route>
           <Route path="/single-project" element={<Main />}></Route>
           <Route path="/achievements" element={<Achievements />}></Route>
           <Route path="*" element={<PageNotFound />} />

@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import "./styles.css";
 import { useHoverStore } from "./store";
 import achievements from "./achievements.jpg";
@@ -13,13 +13,13 @@ import projects from "./projects.jpg";
 
 function Card() {
   gsap.registerPlugin(ScrollTrigger);
-
+  const [isScrolledToEnd, setIsScrolledToEnd] = useState(false);
   const containerRef = useRef(null);
   const triggerRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.fromTo(
+      const scrollTrigger = gsap.fromTo(
         containerRef.current,
         {
           translateX: 0,
@@ -34,6 +34,9 @@ function Card() {
             end: "+=4000 top",
             scrub: 0.6,
             pin: true,
+            onUpdate: (self) => {
+              setIsScrolledToEnd(self.progress >= 0.8);
+            },
           },
         }
       );
@@ -53,7 +56,6 @@ function Card() {
     <div>
       <section ref={triggerRef} className="scroll-container-outer">
         <div id="box" ref={containerRef} className="scroll-container">
-         
           <div
             id="box1"
             className="scroll-section-1 scroll-section landing text-white "
@@ -65,7 +67,6 @@ function Card() {
                 onMouseLeave={handleMouseLeave}
                 to="/achievements"
               >
-                
                 <img
                   src={achievements}
                   className="flex-center"
@@ -88,14 +89,13 @@ function Card() {
                   to="/achievements"
                   passHref
                 >
-                   ACHIEVEMENTS
+                  ACHIEVEMENTS
                 </Link>
                 <ul>
                   <li>
                     Discover the exceptional achievements of the members of our
                     esteemed club, showcasing excellence in various domains.
                   </li>
-
                 </ul>
                 <div className="box-link-cnt">
                   <Link
@@ -118,7 +118,6 @@ function Card() {
               <Link
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-
                 to="/blogs/all"
               >
                 <img
@@ -140,7 +139,6 @@ function Card() {
                   className="medium-font box-title text-xl font-bold"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-
                   to="/blogs/all"
                   passHref
                 >
@@ -208,7 +206,6 @@ function Card() {
                     around cutting-edge Machine Learning initiatives, fostering
                     innovation and advancement within the field.
                   </li>
-
                 </ul>
                 <div className="box-link-cnt ">
                   <Link
@@ -240,7 +237,7 @@ function Card() {
             className="text-white text-xl font-semibold tracking-wider font-mono"
             style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
           >
-            Scroll to Explore
+            {isScrolledToEnd ? "Keep Scrolling" : "Scroll Down"}
           </motion.p>
           <motion.div
             initial={{ x: 20, opacity: 0 }}
@@ -249,7 +246,7 @@ function Card() {
             className="text-white cursor-pointer"
           >
             <FontAwesomeIcon
-              icon={faArrowRight}
+              icon={faArrowDown}
               size="2x"
               className="hover:text-gray-300 transition-colors duration-300 transform hover:scale-110 filter drop-shadow-lg"
               style={{
