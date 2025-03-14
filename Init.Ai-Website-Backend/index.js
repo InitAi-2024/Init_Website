@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://init-website-dusky.vercel.app","https://init-website-dusky.vercel.app/achievements"], // Allow your frontend domain
+    origin: ["https://djinitai.vercel.app","https://djinitai.vercel.app//achievements"], // Allow your frontend domain
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
