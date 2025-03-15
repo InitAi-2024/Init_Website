@@ -49,7 +49,9 @@ const Achievements = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`achievements`);
+      const response = await axios.get(
+        "https://init-website-backend.vercel.app/api/achievements"
+      );
       if (Array.isArray(response.data)) {
         setAchievements(response.data);
         if (response.data.length > 0) {
