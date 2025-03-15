@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://www.djinitai.com/"], // Allow your frontend domain
+    origin: ["https://www.djinitai.com"], // Allow your frontend domain
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
