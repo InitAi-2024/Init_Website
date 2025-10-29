@@ -17,7 +17,7 @@ const navItems = [
     { name: "Research & Blogs", link: "/blogs" },
     { 
         name: "Events", 
-        link: "/events",
+        // link: "/events",
         dropdown: [
             { 
                 name: "D2K 3.0", 
