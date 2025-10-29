@@ -5,127 +5,107 @@ import { cn } from '@/lib/utils';
 const SQRT_5000 = Math.sqrt(5000);
 
 const testimonials = [
+  // 🌐 ANTENNAE
   {
     tempId: 0,
-    testimonial: "My favorite solution in the market. We work 5x faster with COMPANY.",
-    by: "Alex, CEO at TechCorp",
-    imgSrc: "https://i.pravatar.cc/150?img=1"
+    testimonial: "Partnering with the hackathon team was a delight. The creativity and organization at DJ Sanghvi were truly inspiring.",
+    by: "Antennae",
+    imgSrc: "/Antennae.png"
   },
   {
     tempId: 1,
-    testimonial: "I'm confident my data is safe with COMPANY. I can't say that about other providers.",
-    by: "Dan, CTO at SecureNet",
-    imgSrc: "https://i.pravatar.cc/150?img=2"
+    testimonial: "Seamless coordination and great energy throughout the event. Antennae was proud to be a sponsor.",
+    by: "Antennae",
+    imgSrc: "/Antennae.png"
   },
+
+  // 💻 CDAC
   {
     tempId: 2,
-    testimonial: "I know it's cliche, but we were lost before we found COMPANY. Can't thank you guys enough!",
-    by: "Stephanie, COO at InnovateCo",
-    imgSrc: "https://i.pravatar.cc/150?img=3"
+    testimonial: "CDAC was glad to support such bright minds solving real-world AI problems with passion and teamwork.",
+    by: "CDAC",
+    imgSrc: "/C.png"
   },
   {
     tempId: 3,
-    testimonial: "COMPANY's products make planning for the future seamless. Can't recommend them enough!",
-    by: "Marie, CFO at FuturePlanning",
-    imgSrc: "https://i.pravatar.cc/150?img=4"
+    testimonial: "Impressive professionalism and curiosity from every participant — a testament to DJ Sanghvi’s culture.",
+    by: "CDAC",
+    imgSrc: "/C.png"
   },
+
+  // ⚙️ DEXTRA
   {
     tempId: 4,
-    testimonial: "If I could give 11 stars, I'd give 12.",
-    by: "Andre, Head of Design at CreativeSolutions",
-    imgSrc: "https://i.pravatar.cc/150?img=5"
+    testimonial: "Exciting to see projects built with Dextra’s tools. The enthusiasm was unmatched.",
+    by: "Dextra",
+    imgSrc: "/dextra.png"
   },
   {
     tempId: 5,
-    testimonial: "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
-    by: "Jeremy, Product Manager at TimeWise",
-    imgSrc: "https://i.pravatar.cc/150?img=6"
+    testimonial: "Well-organized and engaging — one of the smoothest sponsorship experiences we’ve had.",
+    by: "Dextra",
+    imgSrc: "/dextra.png"
   },
+
+  // 🧠 SOLUNATION
   {
     tempId: 6,
-    testimonial: "Took some convincing, but now that we're on COMPANY, we're never going back.",
-    by: "Pam, Marketing Director at BrandBuilders",
-    imgSrc: "https://i.pravatar.cc/150?img=7"
+    testimonial: "A fantastic initiative blending creativity and tech. Solunation was proud to be part of it.",
+    by: "Solunation",
+    imgSrc: "/S.png"
   },
   {
     tempId: 7,
-    testimonial: "I would be lost without COMPANY's in-depth analytics. The ROI is EASILY 100X for us.",
-    by: "Daniel, Data Scientist at AnalyticsPro",
-    imgSrc: "https://i.pravatar.cc/150?img=8"
+    testimonial: "Brilliant energy and innovation at every stage. Truly a rewarding partnership for Solunation.",
+    by: "Solunation",
+    imgSrc: "/S.png"
   },
+
+  // 🗣️ TEXTIFY
   {
     tempId: 8,
-    testimonial: "It's just the best. Period.",
-    by: "Fernando, UX Designer at UserFirst",
-    imgSrc: "https://i.pravatar.cc/150?img=9"
+    testimonial: "Textify’s collaboration felt seamless — professional, energetic, and full of learning moments.",
+    by: "Textify",
+    imgSrc: "/Textify.png"
   },
   {
     tempId: 9,
-    testimonial: "I switched 5 years ago and never looked back.",
-    by: "Andy, DevOps Engineer at CloudMasters",
-    imgSrc: "https://i.pravatar.cc/150?img=10"
+    testimonial: "Loved the clarity in coordination and enthusiasm from the team. A great experience overall.",
+    by: "Textify",
+    imgSrc: "/Textify.png"
   },
+
+  // 🎯 INTERVIEWBUDDY
   {
     tempId: 10,
-    testimonial: "I've been searching for a solution like COMPANY for YEARS. So glad I finally found one!",
-    by: "Pete, Sales Director at RevenueRockets",
-    imgSrc: "https://i.pravatar.cc/150?img=11"
+    testimonial: "InterviewBuddy enjoyed every moment of this collaboration. A well-managed, impactful event.",
+    by: "InterviewBuddy",
+    imgSrc: "/interviewbuddy.png"
   },
   {
     tempId: 11,
-    testimonial: "It's so simple and intuitive, we got the team up to speed in 10 minutes.",
-    by: "Marina, HR Manager at TalentForge",
-    imgSrc: "https://i.pravatar.cc/150?img=12"
+    testimonial: "Outstanding execution and communication. The team made the entire process effortless.",
+    by: "InterviewBuddy",
+    imgSrc: "/interviewbuddy.png"
   },
+
+  // 💡 HEXMADDIGITAL
   {
     tempId: 12,
-    testimonial: "COMPANY's customer support is unparalleled. They're always there when we need them.",
-    by: "Olivia, Customer Success Manager at ClientCare",
-    imgSrc: "https://i.pravatar.cc/150?img=13"
+    testimonial: "A pleasure collaborating with such passionate organizers. Great exposure and engagement throughout.",
+    by: "HexMadDigital",
+    imgSrc: "/HexaMadDigital.png"
   },
   {
     tempId: 13,
-    testimonial: "The efficiency gains we've seen since implementing COMPANY are off the charts!",
-    by: "Raj, Operations Manager at StreamlineSolutions",
-    imgSrc: "https://i.pravatar.cc/150?img=14"
-  },
-  {
-    tempId: 14,
-    testimonial: "COMPANY has revolutionized how we handle our workflow. It's a game-changer!",
-    by: "Lila, Workflow Specialist at ProcessPro",
-    imgSrc: "https://i.pravatar.cc/150?img=15"
-  },
-  {
-    tempId: 15,
-    testimonial: "The scalability of COMPANY's solution is impressive. It grows with our business seamlessly.",
-    by: "Trevor, Scaling Officer at GrowthGurus",
-    imgSrc: "https://i.pravatar.cc/150?img=16"
-  },
-  {
-    tempId: 16,
-    testimonial: "I appreciate how COMPANY continually innovates. They're always one step ahead.",
-    by: "Naomi, Innovation Lead at FutureTech",
-    imgSrc: "https://i.pravatar.cc/150?img=17"
-  },
-  {
-    tempId: 17,
-    testimonial: "The ROI we've seen with COMPANY is incredible. It's paid for itself many times over.",
-    by: "Victor, Finance Analyst at ProfitPeak",
-    imgSrc: "https://i.pravatar.cc/150?img=18"
-  },
-  {
-    tempId: 18,
-    testimonial: "COMPANY's platform is so robust, yet easy to use. It's the perfect balance.",
-    by: "Yuki, Tech Lead at BalancedTech",
-    imgSrc: "https://i.pravatar.cc/150?img=19"
-  },
-  {
-    tempId: 19,
-    testimonial: "We've tried many solutions, but COMPANY stands out in terms of reliability and performance.",
-    by: "Zoe, Performance Manager at ReliableSystems",
-    imgSrc: "https://i.pravatar.cc/150?img=20"
+    testimonial: "Professional, creative, and energetic — everything a successful partnership should be.",
+    by: "HexMadDigital",
+    imgSrc: "/HexaMadDigital.png"
   }
 ];
+
+
+
 
 const TestimonialCard = ({ 
   position, 
@@ -164,13 +144,15 @@ const TestimonialCard = ({
           width: SQRT_5000,
           height: 2
         }} />
-      <img
-        src={testimonial.imgSrc}
-        alt={`${testimonial.by.split(',')[0]}`}
-        className="mb-4 h-14 w-12 bg-gray-800 object-cover object-top"
-        style={{
-          boxShadow: "3px 3px 0px hsl(var(--background))"
-        }} />
+    <img
+  src={testimonial.imgSrc}
+  alt={`${testimonial.by.split(',')[0]}`}
+  className="mb-4 h-14 w-12 bg-gray-800 object-contain object-center p-1 rounded"
+  style={{
+    boxShadow: "3px 3px 0px hsl(var(--background))"
+  }}
+/>
+
       <h3
         className={cn(
           "text-base sm:text-xl font-medium",
