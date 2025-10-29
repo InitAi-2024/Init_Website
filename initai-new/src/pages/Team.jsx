@@ -56,8 +56,8 @@ export default function Team() {
           <FlippingChromaGridV2 
             items={[
               {
-                image: "./core_images/Prachi_Tawde.png",
-                title: "Prof. Prachi Tawde",
+                image: "./core_images/Prachi_Satam.png",
+                title: "Prof. Prachi Satam",
                 subtitle: "Faculty Co-ordinator",
                 borderColor: getRandomBorderColor(),
                 gradient: getRandomGradient(),
@@ -66,8 +66,8 @@ export default function Team() {
                 ]
               },
               {
-                image: "./core_images/Priyanka_Gonsalves.png",
-                title: "Prof. Priyanka Gonsalves",
+                image: "./core_images/Priyanca_Gonsalves.png",
+                title: "Prof. Priyanca Gonsalves",
                 subtitle: "Faculty Co-ordinator",
                 borderColor: getRandomBorderColor(),
                 gradient: getRandomGradient(),
