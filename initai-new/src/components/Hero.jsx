@@ -61,7 +61,7 @@ const Hero = memo(() => {
 
   {/* Description */}
   <p className="mt-3 text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-gugi">
-    We are DJ inIT.ai — the official AI club of DJ Sanghvi College of Engineering.  
+    We are DJ InIT.AI — the official AI club of DJ Sanghvi College of Engineering.  
     We innovate, educate, and evolve to shape the future of intelligence.
   </p>
 </div>

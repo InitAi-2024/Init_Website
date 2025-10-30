@@ -79,6 +79,24 @@ export default function Team() {
             columns={2}
           />
 
+          <FlippingChromaGridV2 
+            items={[
+              {
+                image: "./core_images/Nandini.jpg",
+                title: "Nandini Nema",
+                subtitle: "Chairperson",
+                borderColor: getRandomBorderColor(),
+                gradient: getRandomGradient(),
+                socials: [
+                  { icon: "github", label: "GitHub", url: "https://github.com/nandininema07" },
+                  { icon: "linkedin", label: "LinkedIn", url: "https://linkedin.com/in/nandininema" },
+                  { icon: "instagram", label: "Instagram", url: "https://www.instagram.com/nandininema_07/" },
+                ]
+              }          
+            ]}
+            columns={1}
+          />
+
           {/* Core Team Members*/}
           <FlippingChromaGridV2 
             items={[
@@ -95,18 +113,18 @@ export default function Team() {
 
                 ]
               },
-              {
-                image: "./core_images/Nandini.jpg",
-                title: "Nandini Nema",
-                subtitle: "Chairperson",
-                borderColor: getRandomBorderColor(),
-                gradient: getRandomGradient(),
-                socials: [
-                  { icon: "github", label: "GitHub", url: "https://github.com/nandininema07" },
-                  { icon: "linkedin", label: "LinkedIn", url: "https://linkedin.com/in/nandininema" },
-                  { icon: "instagram", label: "Instagram", url: "https://www.instagram.com/nandininema_07/" },
-                ]
-              },
+              // {
+              //   image: "./core_images/Nandini.jpg",
+              //   title: "Nandini Nema",
+              //   subtitle: "Chairperson",
+              //   borderColor: getRandomBorderColor(),
+              //   gradient: getRandomGradient(),
+              //   socials: [
+              //     { icon: "github", label: "GitHub", url: "https://github.com/nandininema07" },
+              //     { icon: "linkedin", label: "LinkedIn", url: "https://linkedin.com/in/nandininema" },
+              //     { icon: "instagram", label: "Instagram", url: "https://www.instagram.com/nandininema_07/" },
+              //   ]
+              // },
               {
                 image: "./core_images/Rachit.jpg",
                 title: "Rachit Chawda",
@@ -121,7 +139,7 @@ export default function Team() {
                 ]
               }          
             ]}
-            columns={3}
+            columns={2}
           />
 
           {/* Secretary */}
