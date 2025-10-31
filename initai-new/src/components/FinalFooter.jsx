@@ -9,7 +9,7 @@ export default function FinalFooter() {
             <Footer
                 logo={
                     <img
-                        src="init_logo.jpg"
+                        src="/init_logo.jpg"
                         alt="logo"
                         width={30}
                         height={30}

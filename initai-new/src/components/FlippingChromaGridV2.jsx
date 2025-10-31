@@ -19,18 +19,20 @@ export const FlippingChromaGridV2 = ({ items, className = '', columns = 3 }) => 
   };
 
   return (
-    <div className={`${className} w-full`}>
+    <div className={`${className} w-full group`}>
       <ChromaGrid
         items={items.map(item => ({
           ...item,
           footer: (
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden border border-white/30 hover:border-white/60 transition-all duration-300">
               {/* Acrylic frosted glass background layer */}
-              <div className="absolute inset-0 backdrop-blur-xl bg-black/40 border-t border-white/10"
-                style={{
-                  backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5))',
-                }}
-              />
+             <div className="absolute inset-0 backdrop-blur-xl bg-transparent border-t border-white/40 transition-all duration-300"
+  style={{
+    backgroundImage: 'linear-gradient(to bottom, transparent, transparent)',
+  }}
+/>
+
+
 
               {/* Content layer */}
               <div className="relative z-10">

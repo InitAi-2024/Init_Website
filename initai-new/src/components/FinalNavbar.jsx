@@ -14,19 +14,22 @@ import { useState } from "react";
 
 const navItems = [
     { name: "Home", link: "/" },
+    { name: "About us", link: "/about" },
+    { name: "The Team", link: "/team" },
     { name: "Research & Blogs", link: "/blogs" },
-    { 
+    { name: "Our Projects", link: "/projects" },
+    { name: "Achievements", link: "/achievements" },
+     { 
         name: "Events", 
-        link: "/events",
+        // link: "/events",
         dropdown: [
             { 
                 name: "D2K 3.0", 
                 link: "https://d2k.djinitai.com//" 
             }
         ]
-    },
-    { name: "The Team", link: "/team" },
-    { name: "About us", link: "/about" },
+    }
+    
 ];
 
 export default function FinalNavbar() {
