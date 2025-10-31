@@ -364,9 +364,23 @@ export default function Team() {
                   { icon: "instagram", label: "Instagram", url: "https://www.instagram.com/_ibrahim04_ko" },
 
                 ]
+              },
+              {
+                image: "./core_images/Pranay.jpg",
+                title: "Pranay Kavthankar",
+                subtitle: "Social Media Head",
+                borderColor: getRandomBorderColor(),
+                gradient: getRandomGradient(),
+                socials: [
+                  { icon: "github", label: "GitHub", url: "https://github.com/Pranay2412" },
+                  { icon: "linkedin", label: "LinkedIn", url: "www.linkedin.com/in/pranaykavthankar" },
+                  { icon: "instagram", label: "Instagram", url: "https://www.instagram.com/__pranay12__" },
+
+                ]
               }
+
             ]}
-            columns={2}
+            columns={3}
           />
         </div>
         <div className="relative z-10 px-4 sm:px-6 lg:px-4">
