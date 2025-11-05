@@ -14,6 +14,11 @@ import SocialButton from "@/components/kokonutui/social-button";
 import FinalFooter from "@/components/FinalFooter";
 import LiquidEther from "@/components/LiquidEther";
 import PortfolioSection from "@/components/Section1";
+import d2k from "@/assets/d2k.jpg";
+import logo from "@/assets/logo.png";
+import img from "@/assets/3.jpg";
+import img2 from "@/assets/img1.jpg";
+import goals from "@/assets/goals.png";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -27,10 +32,10 @@ const Index = () => {
   ];
 
   // Placeholder images
-  const teamMeetingMain = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop";
-  const officeWorkspace1 = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop";
-  const officeWorkspace2 = "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop";
-  const teamCollaborationBw = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop";
+  const teamMeetingMain = d2k;
+  const officeWorkspace1 = img2;
+  const officeWorkspace2 = img;
+  const teamCollaborationBw = goals;
 
   return (
     <div className="min-h-screen bg-[#03071e] text-black overflow-y-clip overflow-x-clip relative">
@@ -79,7 +84,7 @@ const Index = () => {
                     OUR STORY
                   </p>
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-extrabold leading-tight text-white">
-                    DJ INIT.AI - {" "}
+                    DJ InIT.AI - {" "}
                     <span className="text-red-400">Educate</span>. <span className="text-red-400">Innovate</span>. <span className="text-red-400">Evolve</span> <span className="text-accent">with AI</span>
                   </h2>
                 </div>
@@ -222,7 +227,7 @@ const Index = () => {
                 <img
                   src={teamCollaborationBw}
                   alt="Team collaboration"
-                  className="w-full h-auto object-cover grayscale"
+                  className="w-full h-auto"
                 />
                 <div className="absolute bottom-12 right-12">
                   <motion.button

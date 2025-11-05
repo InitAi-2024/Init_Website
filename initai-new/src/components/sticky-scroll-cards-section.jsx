@@ -1,32 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
+import IMAGE1 from "../assets/IMAGE1.png";
+import image2 from "../assets/image2.png";
+import Image1 from "../assets/Image1.jpg";
+import CDAC from "../assets/CDAC.png"
+import Hack from "../assets/Hack.png"
 
-// --- Data for the feature cards ---
 const features = [
   {
     title: "Machine Learning Projects",
     description: "Our team develops cutting-edge ML models with real-world applications in healthcare, finance, and sustainability.",
-    imageUrl: "https://images.unsplash.com/photo-1522071901873-411886a10004?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: IMAGE1,
     bgColor: "backdrop-blur-md bg-black/20 border border-white/10",
     textColor: "text-white"
   },
   {
     title: "AI Research Publications",
     description: "We publish our findings in top-tier conferences and journals, contributing to the academic AI community.",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: Image1,
     bgColor: "backdrop-blur-md bg-black/20 border border-white/10",
     textColor: "text-white"
   },
   {
     title: "Hackathons & Competitions",
     description: "We participate in national and international AI competitions, consistently ranking in the top positions.",
-    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: Hack,
     bgColor: "backdrop-blur-md bg-black/20 border border-white/10",
     textColor: "text-white"
   },
   {
     title: "Industry Collaborations",
     description: "We partner with tech companies to solve real-world problems using AI and gain practical experience.",
-    imageUrl: "https://images.unsplash.com/photo-1522071901873-411886a10004?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: CDAC,
     bgColor: "backdrop-blur-md bg-black/20 border border-white/10",
     textColor: "text-white",
     companies: ["Google", "Amazon", "OpenAI", "Meta"]

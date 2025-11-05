@@ -11,7 +11,7 @@
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://files.eric.ed.gov/fulltext/EJ1172284.pdf
-- Image: https://picsum.photos/600/400?random=1
+- Image: https://arxiv.org/html/2408.02033v1/extracted/5772178/fig2.png
 
 ---
 
@@ -30,7 +30,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=2
+- Image: https://d3lkc3n5th01x7.cloudfront.net/wp-content/uploads/2024/01/17044114/Federated-learning-1.png
 
 ---
 
@@ -45,7 +45,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=3
+- Image: https://www.silverpush.co/wp-content/uploads/2023/10/Feature-image.jpg
 
 ---
 
@@ -60,7 +60,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=4
+- Image: https://miro.medium.com/0*EijvT-hrU4R6-nbU.jpg
 
 ---
 
@@ -75,7 +75,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=5
+- Image: https://t4.ftcdn.net/jpg/03/96/09/41/360_F_396094113_QLRzhEcK1AttavzaOhLtzOtJcPEdLOmb.jpg
 
 ---
 
@@ -90,7 +90,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=6
+- Image: https://www.freethink.com/wp-content/uploads/2023/04/AI-music-generator-thumb.jpg?resize=1200,630
 
 ---
 
@@ -107,7 +107,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=7
+- Image: https://images.unsplash.com/photo-1740556391559-eda85bd20523?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8
 
 ---
 
@@ -122,7 +122,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=8
+- Image: https://www.vchri.ca/sites/default/files/styles/max_1300x1300/public/field/image/news_20180626_microscope.jpg?itok=BIXTxQG4
 
 ---
 
@@ -137,7 +137,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=9
+- Image: https://cdn.dribbble.com/userupload/14668874/file/original-220906007c16370ee88e8ec5a9cd270b.png?crop=0x0-2518x1888&format=webp&resize=400x300&vertical=center
 
 ---
 
@@ -152,7 +152,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=10
+- Image: https://miro.medium.com/0*EijvT-hrU4R6-nbU.jpg
 
 ---
 
@@ -167,7 +167,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=11
+- Image: https://www.inovex.de/wp-content/uploads/2020/10/federated-learning-frameworks-1500x880.png
 
 ---
 
@@ -182,7 +182,7 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=12
+- Image: https://thumbs.dreamstime.com/b/children-engaged-storytelling-heartwarming-scene-children-dressed-as-disciples-captivated-storyteller-vibrant-363207339.jpg
 
 ---
 
@@ -197,6 +197,6 @@ The proposed approach will enable the development of an effective ML model that 
 **Links:**
 - Live: https://github.com/MIHIRrPATIL/init-website-test
 - Paper: https://github.com/MIHIRrPATIL/init-website-test
-- Image: https://picsum.photos/600/400?random=13
+- Image: https://ubiai.tools/wp-content/uploads/2023/12/GaN-chip.jpg
 
 ---

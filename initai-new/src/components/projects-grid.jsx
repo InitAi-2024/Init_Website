@@ -5,13 +5,18 @@ import { Button } from '@/components/ui/button';
 import { GetStartedButton } from '@/components/ui/get-started-button';
 import { FaGithub } from 'react-icons/fa';
 import { FaFileAlt } from 'react-icons/fa';
+import v from "../assets/v.png";
+import P from "../assets/P.png";
+import R from "../assets/R.png";
+import Q from "../assets/S.png";
+import L from "../assets/L.png";
 
 const ProjectsGrid = () => {
   const projects = [
     {
       title: "Violent Action Recognition",
       description: "Detecting violent behavior in videos using 3DCNN, ConvLSTM, and LRCN models. Compares ML approaches for public safety scenarios.",
-      imageUrl: "https://picsum.photos/600/400?random=1",
+      imageUrl: v,
       tags: ["Video Analytics", "Violence Detection", "Deep Learning"],
       size: "large",
       bgColor: "bg-white dark:bg-white border border-gray-100 dark:border-gray-200",
@@ -22,44 +27,44 @@ const ProjectsGrid = () => {
     {
       title: "Fleet Analysis Using FedML",
       description: "Federated ML risk-scoring for drivers, vehicles, routes & companies. Ensures privacy in transportation data analysis.",
-      imageUrl: "https://picsum.photos/600/400?random=2",
+      imageUrl: L,
       tags: ["Federated Learning", "Fleet Analytics", "Risk Prediction"],
       size: "medium",
       bgColor: "bg-gray-50 dark:bg-gray-50 border border-gray-200 dark:border-gray-300",
-      textColor: "text-gray-800",
+      textColor: "text-white",
       link: "https://github.com/your-repo/fleet-analysis-fedml",
       paperLink: "https://arxiv.org/abs/2302.00002"
     },
     {
       title: "Contextual Advertising in Live Streaming Videos",
       description: "AI to place non-intrusive, content-relevant ads in live streams using neural networks and NLP techniques.",
-      imageUrl: "https://picsum.photos/600/400?random=3",
+      imageUrl: P,
       tags: ["Advertising", "NLP", "Live Streaming", "Deep Learning"],
       size: "small",
       bgColor: "bg-white dark:bg-white border border-gray-100 dark:border-gray-200",
-      textColor: "text-black",
+      textColor: "text-white",
       link: "https://github.com/your-repo/contextual-advertising",
       paperLink: "https://arxiv.org/abs/2303.00003"
     },
     {
       title: "Content Based Research Paper Recommendation",
       description: "Method to recommend research papers using content features, titles, and abstracts. Enhances lit review searches.",
-      imageUrl: "https://picsum.photos/600/400?random=4",
+      imageUrl: Q,
       tags: ["NLP", "Recommendation", "Academic Search"],
       size: "large",
       bgColor: "bg-gray-50 dark:bg-gray-50 border border-gray-200 dark:border-gray-300",
-      textColor: "text-gray-800",
+      textColor: "text-white",
       link: "https://github.com/your-repo/research-paper-recommendation",
       paperLink: "https://arxiv.org/abs/2304.00004"
     },
     {
       title: "Quality Inspection in Pharma and Metal Industries Using Computer Vision",
       description: "YOLOv8 & CV for defect detection in pills/metal. Improves efficiency and reliability for quality inspection.",
-      imageUrl: "https://picsum.photos/600/400?random=5",
+      imageUrl: R,
       tags: ["Computer Vision", "YOLOv8", "Quality Inspection"],
       size: "small",
       bgColor: "bg-white dark:bg-white border border-gray-100 dark:border-gray-200",
-      textColor: "text-black",
+      textColor: "text-white",
       link: "https://github.com/your-repo/quality-inspection",
       paperLink: "https://arxiv.org/abs/2305.00005"
     }
@@ -89,10 +94,11 @@ const ProjectsGrid = () => {
             onMouseLeave={() => setIsHover(false)}
           >
             <img 
-              src={project.imageUrl} 
-              alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
+  src={project.imageUrl} 
+  alt={project.title}
+  className="w-full h-full object-cover object-center rounded-xl transition-all duration-500 filter blur-[1.5px] group-hover:blur-0"
+/>
+
             <ProgressiveBlur
               className="pointer-events-none absolute bottom-0 left-0 h-full w-full"
               blurIntensity={0.6}
@@ -119,22 +125,33 @@ const ProjectsGrid = () => {
                   ))}
                 </div>
                 {/* Muted action buttons */}
-                <div className="flex gap-2 my-2">
-                  {project.link && project.link !== '#' && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" variant="secondary" className="rounded-full px-3 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/20 text-neutral-800 shadow-sm hover:bg-white/50 active:scale-95 transition-all">
-                        <FaGithub className="text-lg" /> <span>GitHub</span>
-                      </Button>
-                    </a>
-                  )}
-                  {project.paperLink && (
-                    <a href={project.paperLink} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" variant="outline" className="rounded-full px-3 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/20 text-neutral-800 shadow-sm hover:bg-white/50 active:scale-95 transition-all">
-                        <FaFileAlt className="text-md" /> <span>Paper</span>
-                      </Button>
-                    </a>
-                  )}
-                </div>
+               {/* 
+<div className="flex gap-2 my-2">
+  {project.link && project.link !== '#' && (
+    <a href={project.link} target="_blank" rel="noopener noreferrer">
+      <Button 
+        size="sm" 
+        variant="secondary" 
+        className="rounded-full px-3 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/20 text-neutral-800 shadow-sm hover:bg-white/50 active:scale-95 transition-all"
+      >
+        <FaGithub className="text-lg" /> <span>GitHub</span>
+      </Button>
+    </a>
+  )}
+  {project.paperLink && (
+    <a href={project.paperLink} target="_blank" rel="noopener noreferrer">
+      <Button 
+        size="sm" 
+        variant="outline" 
+        className="rounded-full px-3 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/20 text-neutral-800 shadow-sm hover:bg-white/50 active:scale-95 transition-all"
+      >
+        <FaFileAlt className="text-md" /> <span>Paper</span>
+      </Button>
+    </a>
+  )}
+</div>
+*/}
+
               </div>
             </div>
           </motion.div>

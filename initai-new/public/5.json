@@ -1,0 +1,54 @@
+{
+  "_id": "676bbeed90bf08ba5bd89600",
+  "layout": "post",
+  "title": "Enhancing Privacy in Mental Health Prediction Using Centralized and Federated Learning Models",
+  "date": "2024-11-05T12:19:29.000Z",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXERGlzYb8wHlxqmqCAyjgzNsSzZy1adVsxQ&s",
+  "sections": [
+    {
+      "heading": "Abstract",
+      "paragraphs": [
+        "A large percentage of the population suffers from mental health disorders, which imposes serious challenges to healthcare systems around the globe. Early detection of conditions such as depression and anxiety disorders is vital; however, diagnosing methods incorporate wrong predictions and expose patients to data breaches. To bridge this gap of predictions with secured data, this paper presents an approach for analyzing various mental health disorders using centralized models and federated learning considering a dataset of workplaces and demographic data with multiple conditions gathered from surveys. The results indicate that centralized models achieved an accuracy of 82.01% as compared to federated learning models with 80.68%, federated learning models provided comparable performance along with a decrease in losses shared among multiple clients. The calculated privacy loss (ε = 0.5321) and delta (δ = 1×10−5) for federated learning setup using differential privacy indicates enhanced privacy and security among multiple clients and accurate results, highlighting their potential to safeguard sensitive mental health data. "
+    ],
+      "images": []
+    },
+    {
+      "heading": "Introduction",
+      "paragraphs": [
+        "Mental health is essential for individuals to navigate life effectively, yet millions suffer from conditions like depression and anxiety, leading to significant societal and economic burdens. The widespread use of electronic health records has increased the risk of data breaches, particularly in mental health, with millions affected annually. While centralized machine learning models are commonly used in healthcare for predictive tasks, concerns over scalability, security, and privacy have led to the exploration of federated learning. This study conducts a comparative analysis of centralized and federated learning models for mental health predictions, evaluating performance based on metrics like accuracy and computational efficiency. The research aims to highlight federated learning’s potential in preserving patient privacy while ensuring effective predictive modeling in healthcare."
+     ],
+      "images": []
+    },
+    {
+      "heading": "Algorithm Results",
+      "paragraphs": [
+        "Federated: Using the Flower library, the federated learning model achieved a privacy-preserving accuracy of 80.68%, reducing the average loss from 51% to 15% across all clients after 20 epochs. It attained a precision of 79.69%, a recall of 87.94%, and an AUC score of 88.15% over 10 communication rounds. Differential privacy metrics (ε = 0.5321, δ = 1 × 10⁻⁵) demonstrated improved privacy compared to centralized models. The model efficiently distributed processing, reducing central server load and achieving convergence in 10 rounds. Scalability tests with 10 to 100 clients showed minimal accuracy degradation despite increased communication overhead, proving that federated learning can effectively scale while preserving performance and privacy." ,
+        "B. Centralized: The paper evaluates model performance using accuracy, precision, false positive rate, and AUC score, which are standard classification metrics. A classification report summarizes these metrics, with Stacking emerging as the best model for centralized learning, while FedML achieved similar accuracy with lower computational speed. The table below provides a detailed breakdown of predictions, enabling analysis of precision, recall, and F1-score. These assessments offer a comprehensive evaluation, guiding refinements for optimal performance in decentralized learning, where Stacking performed exceptionally well."
+    ],
+      "images": []
+    },
+    {
+      "heading": "System Architecture",
+    "paragraphs": [
+  "The architecture of the designed system is divided into two parts, one for centralized models and one for federated learning.",
+  "Federated Learning: The Federated Learning architecture consists of two main components: Clients.py and Server.py. The server employs the SaveModelStrategy function to aggregate and save model weights received from clients using FedAvg, an extension of FedSGD that allows local updates. Clients use TensorFlow for computations, distributing data across multiple nodes.",
+  "The Flower framework was used to implement the model, leveraging a sequential Neural Network with three hidden layers. The first two layers (128 and 64 neurons) use ReLU activation, while the final layer (32 neurons) employs sigmoid activation for binary classification. Adam optimizer and binary cross-entropy loss function were used, with a learning rate of 1e-6 and 20 local epochs for optimal performance.",
+  "Dropout regularization (0.2) was applied to prevent overfitting. During training, the model evaluates accuracy and loss, retrieves client weights using get_weights(), and sends them to the server for aggregation via FedAvg.",
+  "A large percentage of the population suffers from mental health disorders, which imposes serious challenges to healthcare systems around the globe. Early detection of conditions such as depression and anxiety disorders is vital; however, diagnosing methods incorporate wrong predictions and expose patients to data breaches.",
+  "To bridge this gap of predictions with secured data, this paper presents an approach for analyzing various mental health disorders using centralized models and federated learning considering a dataset of workplaces and demographic data with multiple conditions gathered from surveys.",
+  "The results indicate that centralized models achieved an accuracy of 82.01% as compared to federated learning models with 80.68%, federated learning models provided comparable performance along with a decrease in losses shared among multiple clients.",
+  "The calculated privacy loss (ε = 0.5321) and delta (δ = 1×10−5) for federated learning setup using differential privacy indicates enhanced privacy and security among multiple clients and accurate results, highlighting their potential to safeguard sensitive mental health data."
+],
+      "images": [
+        { "url": "system_architecture_diagram.png" }
+      ]
+    },
+    {
+      "heading": "Conclusion",
+      "paragraphs": [
+        "This research highlights the consistency between centralized and decentralized training, with accuracy levels of 82.01% and 80.68%, respectively. The federated learning approach, incorporating differential privacy (ε = 0.5321, δ = 1×10⁻⁵), enhances data security and privacy, making it a less invasive alternative to centralized methods. By decentralizing training, federated learning reduces risks like privacy violations and data leakage while maintaining comparable accuracy and convergence speed. This study supports the adoption of federated learning in privacy-sensitive domains, offering a secure and responsible alternative to traditional centralized training for mental health and beyond"
+    ],
+      "images": []
+    }
+  ]
+}

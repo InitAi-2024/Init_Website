@@ -5,9 +5,127 @@
   "date": "2020-02-11T12:19:29.000Z",
   "summary": "Introduction to TensorFlow.js",
   "image": "https://res.cloudinary.com/dgbhomjud/image/upload/v1735114110/B9_ptijit.png",
-  "author": "Your Name",
-  "readTime": 10,
-  "tags": ["tensorflow", "machine learning", "javascript", "web development"],
-  "mdcontent": "Machine Learning is a complex discipline but implementing machine program's or models is far less daunting and difficult that's due to various machine learning framework such as Google's Tensorflow, pyTorch, Microsoft's CNTX, NEXT. Created By Google Brain team, TensorFlow is an open source library for Numerical Computation and large scale Machine learning.\n\nIn TensorFlow all the computations involve tensors where tensors are the standard way of representing the data in machine learning or deep learning models. A tensor is a vector or matrix of n-Dimensions that represents the data type. All the operations are conducted inside a graph and a graph is a set of computation that take place successively. Each operation is called an open node and they are connected to each other. TensorFlow allows the user to create data flow graphs which describe how data moves through a graph and a series of processing nodes. Each node in the graph represents a mathematical operation and each connection is a multidimensional array or tensor.\n\n## What are Tensors?\n\nTensors are the de facto standard for representing data in deep learning. They are essentially multidimensional arrays that allow you to represent data having higher dimensions. In deep learning, you typically deal with high dimensional datasets where dimensions refer to different features present in the dataset.\n\n![Tensor Visualization](https://miro.medium.com/max/848/1*kgzLawJmfp3i3UCG_KhfDA.png)\n\nIn the image above, you can see how tensors can represent data in various dimensions. The term \"TensorFlow\" is derived from the operations that neural networks perform on tensors - it's literally a flow of tensors through a series of mathematical operations.\n\n## What is TensorFlow?\n\nTensorFlow is a library based on Python that provides different types of functionality for implementing Deep Learning Models. As mentioned earlier, the term TensorFlow is made up of two terms - Tensor & Flow.\n\nIn TensorFlow, the term 'tensor' refers to the representation of data as multi-dimensional arrays, while 'flow' refers to the series of operations that one performs on these tensors. This creates a data flow graph where tensors flow through operations.\n\n## TensorFlow Technical Architecture\n\n![TensorFlow Architecture](https://data-flair.training/blogs/wp-content/uploads/sites/2/2018/05/Technical-Architecture.png)\n\nThe TensorFlow architecture consists of several key components:\n\n1. **Sources** - Create loaders for servable versions\n2. **Loaders** - Contain metadata needed to load the servable\n3. **Manager** - Handles the lifecycle of servables\n4. **Core Runtime** - Executes the computation graphs\n\n## TensorFlow.js\n\nTensorFlow.js is the web version of the TensorFlow framework, allowing developers to build and run machine learning models directly in the browser using JavaScript. It includes a high-level layers API similar to Keras, making it easier to build and train models.\n\n### Key Features of TensorFlow.js\n\n- **Browser-based ML**: Run ML models directly in the browser\n- **Transfer Learning**: Retrain pre-trained models with your own data\n- **GPU Acceleration**: Automatic GPU acceleration for improved performance\n- **Import Models**: Import pre-trained TensorFlow and Keras models\n\n### Getting Started with TensorFlow.js\n\nTo get started with TensorFlow.js, you can include it in your project via CDN or npm:\n\n```html\n<script src=\"https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js\"></script>\n```\n\nOr install it via npm:\n\n```bash\nnpm install @tensorflow/tfjs\n```\n\n### Example: Simple Linear Regression\n\nHere's a simple example of linear regression using TensorFlow.js:\n\n```javascript\n// Define training data\nconst xs = tf.tensor1d([1, 2, 3, 4]);\nconst ys = tf.tensor1d([1, 3, 5, 7]);\n\n// Define the model\nconst model = tf.sequential();\nmodel.add(tf.layers.dense({units: 1, inputShape: [1]}));\n\n// Compile the model\nmodel.compile({\n  optimizer: 'sgd',\n  loss: 'meanSquaredError'\n});\n\n// Train the model\nmodel.fit(xs, ys, {epochs: 500}).then(() => {\n  // Use the model to predict\n  model.predict(tf.tensor2d([5], [1, 1])).print();\n});\n```\n\n## Conclusion\n\nTensorFlow.js brings the power of machine learning to the web, enabling developers to create intelligent applications that run entirely in the browser. With its familiar JavaScript API and support for both training and inference, it's an excellent choice for web developers looking to add ML capabilities to their applications.\n\n## What can you do with TensorFlow.js?\n\nIf you’re developing with TensorFlow.js, here are three workflows you can consider\n\n - **You can import an existing, pre-trained model for inference.** If you have an\nexisting TensorFlow or Keras model you’ve previously trained offline, you can\nconvert into TensorFlow.js format, and load it into the browser for inference.\n - **You can re-train an imported model.** You can use transfer learning to augment\nan existing model trained offline using a small amount of data collected in the\nbrowser using a technique called Image Retraining. This is one way to train an\naccurate model quickly, using only a small amount of data.\n - **Author models directly in browser. ​** ​ You can also use TensorFlow.js to define,\ntrain, and run models entirely in the browser using Javascript and a high-level\nlayers API.\n\n## Installation:\nHere’s how to install Tensoflow.js for the client side. There is also a\nserver-side version that runs on Node.js, but we won’t be using that in the tutorial:\n\n```\nnpm install @tensorflow/tfjs ​\n```\n\n``` JavaScript\n<script src = \"https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js\"> </script>\n```\n## Building a Linear Regresion Model in TensorFlow.js\n\n## What is Linear Regresion?\n\n**Linear regression** is a ​ linear approach to modeling the relationship between a scalar\nresponse (or dependent variable) and one or more explanatory variables (or\nindependent variables). The case of one explanatory variable is called simple ​ linear\nregression​ .\n\nLets Move on to implementing our model in tensorflow.js:  \n - **Initialize training data in tensors:**\n ```JavaScript\n  const ys = tf.tensor1d([2, 2, 4, 3, 4.5, 4.5, 7, 10]);\n  const xs = tf.tensor1d([1, 2, 3, 4, 5, 6, 7, 8]);\n```\n - **Initialize the beginning variables for the model:**\n Unlike tensors, variables can be changed. We need to initialize the parameters of\nthe model with some values, to give gradient descent something to tweak:\n```JavaScript\nlet m = tf.scalar(Math.random()).variable();\nlet b = tf.scalar(Math.random()).variable();\n```\n - **Define the Model :**\n For Our Model, we use simply y = mx + b,\n\n ```JavaScript\n  const model = x =>m.mul(x).add(b);\n ```\n - **Make the optimizer.:**\n This one is a stochastic gradient optimizer, which means\n that our results will vary slightly each time we run this script. The upside of using\n the stochastic approach is that it’s faster.\n ```JavaScript\n  const learningRate = 0.01;\n  const optimizer = tf.train.sgd(learningRate);\n ```\n - **Define a loss function:**\n Mean Squared Error:\n ```JavaScript\n const loss = (pred, actual) =>\n pred.sub(actual).square().mean();\n ```\n - **Train the model:**\nWith each loop, the model variables are adjusted to minimize\nthe output of the loss function:\n\n```JavaScript\n  for (let i = 0; i < 10; ++i) {\n  optimizer.minimize(() => loss(model(xs), ys));\n  }\n```\n- **Use the model to predict outcomes. We can get predictions for a single\nvalue, or an array of values:**\n\n```JavaScript\n  const singlePrediction = model(2.3).dataSync();\n//predicted result: 2.508747100830078\n  const arrayPrediction = model([2.3, 11, 100]).dataSync();\n// predicted result: [2.508747100830078, 10.984630584716797,97.69194030761719]\n```\n![png](https://github.com/djinit-ai/djinit-ai.github.io/blob/master/images/result1.png)\nAnd that’s it! Below is a similar graph of the data used to train the model and a line\nrepresenting our model’s predictions at each value for x. Use the p5.js library to\nimplement this visualization of our model in the browser.\n\n## Building an Image Classification Model in your Browser using a Webcam\n\n - Open a text editor of your choice and create a file index.html.​ Save the following\ncode in this file:\n\n```\n<​ meta​ ​ http-equiv​ = ​ \"X-UA-Compatible\"​ ​ content​ = ​ \"IE=edge\"​ >\n<​ meta​ ​ name​ = ​ \"viewport\"​ ​ content​ = ​ \"width=device-width,\ninitial-scale=1\"​ >\n<!-- title of the page -->\n<​ title​ >image_classification</​ title​ >\n<!-- load processing library-->\n<​ script\nsrc​ = ​ \"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js\"​ ></​ s\ncript​ >\n<​ script\nsrc​ = ​ \"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.\nmin.js\"​ ></​ script​ >\n<!-- load ml5.js --><​ script\nsrc​ = ​ \"https://unpkg.com/ml5@0.1.1/dist/ml5.min.js\"​ ></​ script​ >\n<!-- load index.js -->\n<​ script​ ​ src​ = ​ \"index.js\"​ ></​ script​ >\n</​ head​ >\n<​ body​ >\n<!-- this is where the video will be shown -->\n<​ video​ ​ id​ = ​ \"video\"​ ></​ video​ >\n</​ body​ >\n</​ html​ >\n```\n - **Next, create another file ​index.js and write the following code in it**\n\n ```JavaScript\nlet​ mobilenet;\nlet​ video;\nlet​ label ​ = ​ ​ ''​ ;\n// when model is ready make predictions\nfunction​ ​ modelReady​ () {\nconsole​ . ​ log​ ( ​ 'Model is ready!!!'​ );\nmobilenet.​ predict​ (gotResults);\n}\nfunction​ ​ gotResults​ (error, results) {\nif​ (error) {\nconsole​ . ​ error​ (error);\n} ​ else​ {label ​ = ​ results[​ 0 ​ ].​ className​ ;\n// loop the inference by calling itself\nmobilenet.​ predict​ (gotResults);\n}\n}\n// setup function\nfunction​ ​ setup​ () {\ncreateCanvas​ ( ​ 640​ , ​ 550​ );\n// ml5 to create video capture\nvideo ​ = ​ ​ createCapture​ ( ​ VIDEO​ );\nvideo.​ hide​ ();\nbackground​ ( ​ 0 ​ );\n// load the MobileNet and apply it on video feed\nmobilenet ​ = ​ ml5.​ imageClassifier​ ( ​ 'MobileNet'​ , video,\nmodelReady);\n}\nfunction​ ​ draw​ () {\nbackground​ ( ​ 0 ​ );\n// show video\nimage​ (video, ​ 0 ​ , ​ 0 ​ );\nfill​ ( ​ 255​ );\ntextSize​ ( ​ 32​ );\n// show prediction label\ntext​ (label, ​ 10​ , height ​ - ​ ​ 20​ );}\n```\nSave both the files and open your ​ index.html ​ file in a browser like Google Chrome\nor Mozilla Firefox. That’s it! You have now created an app that can classify\nimages in real-time using your webcam in the browser itself! Here is how it looks.\n\n![png](https://github.com/djinit-ai/djinit-ai.github.io/blob/master/images/result2.png)\n - In the above example, we used a pre-trained image classification model called\nMobileNet\n - We used ​ ml5.js​ , a library built on top of TensorFlow.js, to load the MobileNet\nmodel into our browser and perform inference on the video feed\n - We also leveraged the ​ P5.js library to process the video feed and display labels\non the video itself",
-  "authorBio": "Author is a machine learning enthusiast with experience in TensorFlow and web development."
+  "sections": [
+    {
+      "heading": "Introduction",
+      "paragraphs": [
+        "Machine Learning is a complex discipline but implementing machine program's or models is far less daunting and difficult that's due to various machine learning framework such as Google's Tensorflow, pyTorch, Microsoft's CNTX, NEXT. Created By Google Brain team, TensorFlow is an open source library for Numerical Computation and large scale Machine learning.",
+        "In TensorFlow all the computations involve tensors where tensors are the standard way of representing the data in machine learning or deep learning models. A tensor is a vector or matrix of n-Dimensions that represents the data type. All the operations are conducted inside a graph and a graph is a set of computation that take place successively. Each operation is called an open node and they are connected to each other. TensorFlow allows the user to create data flow graphs which describe how data moves through a graph and a series of processing nodes. Each node in the graph represents a mathematical operation and each connection is a multidimensional array or tensor."
+      ],
+      "images": []
+    },
+    {
+      "heading": "What are Tensors?",
+      "paragraphs": [
+        "Tensors are the de facto standard for representing data in deep learning. They are essentially multidimensional arrays that allow you to represent data having higher dimensions. In deep learning, you typically deal with high dimensional datasets where dimensions refer to different features present in the dataset.",
+        "In the image above, you can see how tensors can represent data in various dimensions. The term 'TensorFlow' is derived from the operations that neural networks perform on tensors - it's literally a flow of tensors through a series of mathematical operations."
+      ],
+      "images": [
+        { "url": "https://miro.medium.com/max/848/1*kgzLawJmfp3i3UCG_KhfDA.png" }
+      ]
+    },
+    {
+      "heading": "What is TensorFlow?",
+      "paragraphs": [
+        "TensorFlow is a library based on Python that provides different types of functionality for implementing Deep Learning Models. As mentioned earlier, the term TensorFlow is made up of two terms - Tensor & Flow.",
+        "In TensorFlow, the term 'tensor' refers to the representation of data as multi-dimensional arrays, while 'flow' refers to the series of operations that one performs on these tensors. This creates a data flow graph where tensors flow through operations."
+      ],
+      "images": []
+    },
+    {
+      "heading": "TensorFlow Technical Architecture",
+      "paragraphs": [
+        "The TensorFlow architecture consists of several key components:",
+        "1. Sources - Create loaders for servable versions",
+        "2. Loaders - Contain metadata needed to load the servable",
+        "3. Manager - Handles the lifecycle of servables",
+        "4. Core Runtime - Executes the computation graphs"
+      ],
+      "images": [
+        { "url": "https://data-flair.training/blogs/wp-content/uploads/sites/2/2018/05/Technical-Architecture.png" }
+      ]
+    },
+    {
+      "heading": "TensorFlow.js",
+      "paragraphs": [
+        "TensorFlow.js is the web version of the TensorFlow framework, allowing developers to build and run machine learning models directly in the browser using JavaScript. It includes a high-level layers API similar to Keras, making it easier to build and train models."
+      ],
+      "images": []
+    },
+    {
+      "heading": "Key Features of TensorFlow.js",
+      "paragraphs": [
+        "Browser-based ML: Run ML models directly in the browser",
+        "Transfer Learning: Retrain pre-trained models with your own data",
+        "GPU Acceleration: Automatic GPU acceleration for improved performance",
+        "Import Models: Import pre-trained TensorFlow and Keras models"
+      ],
+      "images": []
+    },
+    {
+      "heading": "Getting Started with TensorFlow.js",
+      "paragraphs": [
+        "To get started with TensorFlow.js, you can include it in your project via CDN or npm:",
+        "<script src=\"https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js\"></script>",
+        "Or install it via npm:",
+        "npm install @tensorflow/tfjs"
+      ],
+      "images": []
+    },
+    {
+      "heading": "Example: Simple Linear Regression",
+      "paragraphs": [
+        "Here's a simple example of linear regression using TensorFlow.js:",
+        "// Define training data\nconst xs = tf.tensor1d([1, 2, 3, 4]);\nconst ys = tf.tensor1d([1, 3, 5, 7]);\n\n// Define the model\nconst model = tf.sequential();\nmodel.add(tf.layers.dense({units: 1, inputShape: [1]}));\n\n// Compile the model\nmodel.compile({\n  optimizer: 'sgd',\n  loss: 'meanSquaredError'\n});\n\n// Train the model\nmodel.fit(xs, ys, {epochs: 500}).then(() => {\n  // Use the model to predict\n  model.predict(tf.tensor2d([5], [1, 1])).print();\n});"
+      ],
+      "images": []
+    },
+    {
+      "heading": "Conclusion",
+      "paragraphs": [
+        "TensorFlow.js brings the power of machine learning to the web, enabling developers to create intelligent applications that run entirely in the browser. With its familiar JavaScript API and support for both training and inference, it's an excellent choice for web developers looking to add ML capabilities to their applications."
+      ],
+      "images": []
+    },
+    {
+      "heading": "What can you do with TensorFlow.js?",
+      "paragraphs": [
+        "If you're developing with TensorFlow.js, here are three workflows you can consider",
+        "Import an existing model for inference. Convert a TensorFlow or Keras model for browser use.",
+        "Re-train an imported model. Use transfer learning and retrain it with browser data.",
+        "Author models directly in browser. Define, train, and run models in JavaScript using the layers API."
+      ],
+      "images": []
+    },
+    {
+      "heading": "Installation",
+      "paragraphs": [
+        "Install TensorFlow.js for the client side:",
+        "npm install @tensorflow/tfjs",
+        "Or include it with:",
+        "<script src=\"https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js\"></script>"
+      ],
+      "images": []
+    },
+    {
+      "heading": "Building a Linear Regression Model in TensorFlow.js",
+      "paragraphs": [
+        "What is Linear Regression?",
+        "Linear regression is a linear approach to modeling the relationship between a scalar response and one or more explanatory variables.",
+        "Implementing our model:",
+        "const ys = tf.tensor1d([2, 2, 4, 3, 4.5, 4.5, 7, 10]);\nconst xs = tf.tensor1d([1, 2, 3, 4, 5, 6, 7, 8]);\n\nlet m = tf.scalar(Math.random()).variable();\nlet b = tf.scalar(Math.random()).variable();\n\nconst model = x => m.mul(x).add(b);\nconst learningRate = 0.01;\nconst optimizer = tf.train.sgd(learningRate);\nconst loss = (pred, actual) => pred.sub(actual).square().mean();\n\nfor (let i = 0; i < 10; ++i) {\n  optimizer.minimize(() => loss(model(xs), ys));\n}\n\nconst singlePrediction = model(2.3).dataSync();\nconst arrayPrediction = model(tf.tensor1d([2.3, 11, 100])).dataSync();"
+      ],
+      "images": []
+    },
+    {
+      "heading": "Building an Image Classification Model in your Browser using a Webcam",
+      "paragraphs": [
+        "index.html",
+        "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>image_classification</title>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js\"></script>\n<script src=\"https://unpkg.com/ml5@0.1.1/dist/ml5.min.js\"></script>\n<script src=\"index.js\"></script>\n<video id=\"video\"></video>",
+        "index.js",
+        "let mobilenet;\nlet video;\nlet label = '';\n\nfunction modelReady() {\n  console.log('Model is ready!!!');\n  mobilenet.predict(gotResults);\n}\n\nfunction gotResults(error, results) {\n  if (error) {\n    console.error(error);\n  } else {\n    label = results[0].className;\n    mobilenet.predict(gotResults);\n  }\n}\n\nfunction setup() {\n  createCanvas(640, 550);\n  video = createCapture(VIDEO);\n  video.hide();\n  background(0);\n  mobilenet = ml5.imageClassifier('MobileNet', video, modelReady);\n}\n\nfunction draw() {\n  background(0);\n  image(video, 0, 0);\n  fill(255);\n  textSize(32);\n  text(label, 10, height - 20);\n}"
+      ],
+      "images": []
+    }
+  ]
 }

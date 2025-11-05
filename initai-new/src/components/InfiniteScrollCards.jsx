@@ -127,10 +127,10 @@ const InfiniteScrollCards = ({ achievements }) => {
       ref={sectionRef} 
       className="relative w-full overflow-hidden bg-[#03071e]"
     >
-      {/* Background Ether effect with purple theme */}
+      {/* Background Ether effect - consistent with site theme */}
       <div className="absolute inset-0 z-0">
         <LiquidEther
-          colors={["#7c3aed", "#c084fc", "#4f46e5"]}
+          colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
           mouseForce={20}
           cursorSize={100}
           isViscous={false}
@@ -138,7 +138,6 @@ const InfiniteScrollCards = ({ achievements }) => {
           iterationsViscous={32}
           iterationsPoisson={32}
           resolution={0.3}
-          isBounce={false}
           autoDemo={true}
           autoSpeed={0.5}
           autoIntensity={2.2}
@@ -166,101 +165,114 @@ const InfiniteScrollCards = ({ achievements }) => {
               }}
               className="relative w-screen h-screen flex-shrink-0 flex items-center justify-center px-4 md:px-8"
             >
-              {/* SMALLER ACHIEVEMENT CARD */}
-              <div className="relative w-full max-w-4xl h-[70vh] rounded-3xl overflow-hidden group border-2 border-white/10 backdrop-blur-xl">
-                <div
-  className="absolute inset-0 bg-center bg-cover"
-  style={{
-    backgroundImage: achievement.image ? `url(${achievement.image})` : 'none',
-    backgroundColor: 'rgba(0,0,0,0.4)', // fallback dark overlay
-  }}
->
-  {/* Subtle overlay for readability */}
-<div className="absolute inset-0 bg-black/40 backdrop-blur-[4px]"></div>
-</div>
-
-
-                {/* Animated Border on Hover */}
-                <div className={`absolute inset-0 border-2 ${getCategoryBorder(getCompetitionType(achievement))} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
-
-                {/* Content */}
-               <div className="relative h-full flex flex-col p-6 md:p-8 text-white font-bold tracking-wide z-10 overflow-y-auto text-shadow-lg">
-   {/* Category Badge and Year */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold tracking-wider border border-white/20">
-                      {getCompetitionType(achievement)?.toUpperCase() || 'HACKATHON'}
-                    </span>
-                    <div className="flex items-center gap-2">
-                      <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
+              {/* FLIP CONTAINER */}
+              <div className="flip-container w-full max-w-4xl h-[70vh]" style={{ perspective: '1000px' }}>
+                <div className="flip-inner relative w-full h-full transition-transform duration-700 rounded-3xl" style={{ transformStyle: 'preserve-3d' }}>
+                  
+                  {/* FRONT SIDE - SMALLER ACHIEVEMENT CARD */}
+                  <div className="flip-front absolute inset-0 rounded-3xl overflow-hidden group border-2 border-white/10 backdrop-blur-xl" style={{ backfaceVisibility: 'hidden' }}>
+                    <div
+                      className="absolute inset-0 bg-center bg-cover"
+                      style={{
+                        backgroundImage: achievement.image ? `url(${achievement.image})` : 'none',
+                        backgroundColor: 'rgba(0,0,0,0.4)', // fallback dark overlay
+                      }}
+                    >
+                      {/* Subtle overlay for readability */}
+                      <div className="absolute inset-0 bg-black/40 backdrop-blur-[4px]"></div>
                     </div>
-                  </div>
 
-                  {/* Competition Name */}
-                  <h2 className="text-2xl md:text-4xl font-black mb-4 leading-tight">
-                    {achievement.title || 'Competition'}
-                  </h2>
+                    {/* Animated Border on Hover */}
+                    <div className={`absolute inset-0 border-2 ${getCategoryBorder(getCompetitionType(achievement))} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
 
-
-
-
-               
-
-
-                  {/* Team Members */}
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                      <span className="text-sm font-semibold text-white/90">Team Members:</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {getTeamMembers(achievement).map((member, memberIndex) => (
-                        <span
-                          key={memberIndex}
-                          className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium border border-white/10"
-                        >
-                          {member}
+                    {/* Content */}
+                    <div className="relative h-full flex flex-col p-6 md:p-8 text-white font-bold tracking-wide z-10 overflow-y-auto text-shadow-lg">
+                      {/* Category Badge and Year */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold tracking-wider border border-white/20">
+                          {getCompetitionType(achievement)?.toUpperCase() || 'HACKATHON'}
                         </span>
-                      ))}
+                        <div className="flex items-center gap-2">
+                          <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Competition Name */}
+                      <h2 className="text-2xl md:text-4xl font-black mb-4 leading-tight">
+                        {achievement.title || 'Competition'}
+                      </h2>
+
+                      {/* Team Members */}
+                      <div className="mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                          <span className="text-sm font-semibold text-white/90">Team Members:</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {getTeamMembers(achievement).map((member, memberIndex) => (
+                            <span
+                              key={memberIndex}
+                              className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium border border-white/10"
+                            >
+                              {member}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <div className="flex-1 overflow-y-auto">
+                        <p className="text-base md:text-lg text-white/90 leading-relaxed font-semibold text-shadow-lg">
+                          {getDescription(achievement)}
+                        </p>
+                      </div>
+
+                      {/* Additional Info (Awards/Prizes if mentioned) */}
+                      {getDescription(achievement).toLowerCase().includes('prize') || 
+                       getDescription(achievement).toLowerCase().includes('award') || 
+                       getDescription(achievement).toLowerCase().includes('win') ? (
+                        <div className="mt-4 p-3 rounded-lg bg-white/10 backdrop-blur-md border border-white/10">
+                          <div className="flex items-center gap-2">
+                            <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <span className="text-sm font-semibold text-yellow-300">Achievement Highlighted</span>
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
-                  </div>
 
-                  {/* Description */}
-                  <div className="flex-1 overflow-y-auto">
-  <p className="text-base md:text-lg text-white/90 leading-relaxed font-semibold text-shadow-lg">
-    {getDescription(achievement)}
-  </p>
-</div>
-
-
-                  {/* Additional Info (Awards/Prizes if mentioned) */}
-                  {getDescription(achievement).toLowerCase().includes('prize') || 
-                   getDescription(achievement).toLowerCase().includes('award') || 
-                   getDescription(achievement).toLowerCase().includes('win') ? (
-                    <div className="mt-4 p-3 rounded-lg bg-white/10 backdrop-blur-md border border-white/10">
-                      <div className="flex items-center gap-2">
-                        <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        <span className="text-sm font-semibold text-yellow-300">Achievement Highlighted</span>
+                    {/* Shine Effect on Hover */}
+                    <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                       </div>
                     </div>
-                  ) : null}
-                </div>
 
-                {/* Shine Effect on Hover */}
-                <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+                    {/* Decorative Corner Accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-white/10 rounded-tl-3xl"></div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-white/10 rounded-br-3xl"></div>
                   </div>
-                </div>
 
-                {/* Decorative Corner Accents */}
-                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-white/10 rounded-tl-3xl"></div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-white/10 rounded-br-3xl"></div>
+                  {/* BACK SIDE - Only Background Image */}
+                  <div className="flip-back absolute inset-0 rounded-3xl overflow-hidden border-2 border-white/10" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                    <div
+                      className="absolute inset-0 bg-center bg-cover"
+                      style={{
+                        backgroundImage: achievement.image ? `url(${achievement.image})` : 'none',
+                        backgroundColor: 'rgba(0,0,0,0.4)',
+                      }}
+                    >
+                      {/* Optional: Add a subtle overlay for aesthetics */}
+                      <div className="absolute inset-0 bg-black/10"></div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           ))}
@@ -313,8 +325,12 @@ const InfiniteScrollCards = ({ achievements }) => {
         </button>
       </div>
 
-      {/* CSS for Float Animation */}
+      {/* CSS for Float Animation and Flip Effect */}
       <style>{`
+        .flip-container:hover .flip-inner {
+          transform: rotateY(180deg);
+        }
+        
         @keyframes float {
           0%, 100% { transform: translate(0, 0) scale(1); }
           50% { transform: translate(20px, -20px) scale(1.1); }
