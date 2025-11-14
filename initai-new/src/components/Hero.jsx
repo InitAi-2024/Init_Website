@@ -31,7 +31,7 @@ const Hero = memo(() => {
             </div>
 
             {/* Neural Network - Half visible on right */}
-            <div className="absolute scale-105 right-10 top-0 w-1/2 h-full z-0 overflow-hidden">
+            <div className="absolute scale-105 right-0 top-0 w-1/2 h-full z-0 overflow-hidden">
                 <NeuralNetwork />
             </div>
 
