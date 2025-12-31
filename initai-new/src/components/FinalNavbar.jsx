@@ -12,8 +12,7 @@ import {
 } from "./ui/resizable-navbar";
 import { useState } from "react";
 
-const navItems = [
-    { name: "Home", link: "/" },
+const navItems = {
     { name: "About us", link: "/about" },
     { name: "The Team", link: "/team" },
     { name: "Research & Blogs", link: "/blogs" },
