@@ -35,7 +35,7 @@ export default function FinalFooter() {
                     },
                     {
                         icon: <Mail className="h-5 w-5" />,
-                        href: "mailto:your.email@example.com",
+                        href: "mailto:initai.djsce@gmail.com",
                         label: "Email",
                     },
                 ]}
