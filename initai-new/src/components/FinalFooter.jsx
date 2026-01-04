@@ -1,7 +1,7 @@
 "use client";
 
 import { Footer } from "./ui/Footer";
-import { Twitter, Github, Linkedin, Mail } from "lucide-react";
+import { Instagram, Github, Linkedin, Mail } from "lucide-react";
 
 export default function FinalFooter() {
     return (
@@ -19,13 +19,13 @@ export default function FinalFooter() {
                 brandName="DJ InIT.AI"
                 socialLinks={[
                     {
-                        icon: <Twitter className="h-5 w-5" />,
-                        href: "https://twitter.com",
-                        label: "Twitter",
+                        icon: <Instagram className="h-5 w-5" />,
+                        href: "https://www.instagram.com/djinit.ai",
+                        label: "Instagram",
                     },
                     {
                         icon: <Github className="h-5 w-5" />,
-                        href: "https://github.com",
+                        href: "https://github.com/InitAi-2024",
                         label: "GitHub",
                     },
                     {
