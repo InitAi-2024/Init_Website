@@ -187,7 +187,9 @@ const ProductCard = ({ product, style }) => {
                 </div>
               </div>
             </div>
-            <ModalFooter className="py-4 flex justify-center gap-4 md:gap-6 border-t border-white/10 bg-black/30">
+
+            {/* Uncomment to use Live Paper and GitHub link of respective Papers */}
+            {/* <ModalFooter className="py-4 flex justify-center gap-4 md:gap-6 border-t border-white/10 bg-black/30">
               <LinkPreview 
                 url={product.link} 
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg text-lg md:text-xl font-semibold transition-all shadow-lg hover:shadow-blue-500/50"
@@ -202,7 +204,7 @@ const ProductCard = ({ product, style }) => {
                   Paper Link
                 </LinkPreview>
               )}
-            </ModalFooter>
+            </ModalFooter> */}
           </div>
         </ModalContent>
       </ModalBody>
